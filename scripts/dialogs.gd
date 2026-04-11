@@ -9,6 +9,7 @@ extends Sprite2D
 @onready var ball: TextureButton = $"../Ball"
 @onready var timer: Timer = $Timer
 
+@onready var rozbitek = $"../Rozbitek"
 
 var scene = 0
 var marynarz = false
@@ -20,6 +21,7 @@ var rule_alone = false
 var guide = false
 var disappearing = false
 var fish = false
+
 
 func guest(tekst):
 	q_label.text=tekst
@@ -37,6 +39,7 @@ func a2(tekst):
 	answer2_buble.show()
 
 func _ready() -> void:
+	rozbitek.show()
 	guest(
 	"wiedźmo morska! jestem skończony.
 	nie wiem jaka mnie przyszłość czeka.
@@ -59,6 +62,7 @@ func story0_fin():
 	guest("dziękuje ci za pomoc,
 	nie mam dużo ale proszę")
 	timer.start()
+	rozbitek.hide()
 
 func story1():
 	guest(
