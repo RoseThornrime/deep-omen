@@ -48,3 +48,7 @@ func _on_tutorial_pressed() -> void:
 	AudioManager.play_effect("click")
 	tutorial.show()
 	hide_buttons()
+
+
+func _on_options_hidden() -> void:
+	show_buttons()

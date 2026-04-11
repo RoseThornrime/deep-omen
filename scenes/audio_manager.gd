@@ -26,9 +26,18 @@ func _ready():
 	for name in effects.keys():
 		var path = effects[name]
 		var player = AudioStreamPlayer.new()
+		player.bus = "Effects"
 		add_child(player)
 		player.stream = load(path)
 		effect_players[name] = player
 		
 func play_effect(name):
 	effect_players[name].play()
+	
+func set_music_volume(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+
+func set_effects_volume(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(value))
+	
+	
