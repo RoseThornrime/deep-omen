@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d2ed8n5fdkg2j"]
+
+[ext_resource type="PackedScene" uid="uid://df0ofnm15poot" path="res://scenes/bubble.tscn" id="1_c2u1v"]
+
+[node name="Options" type="Node2D" unique_id=1900168259]
+
+[node name="Bubble" parent="." unique_id=1357280042 instance=ExtResource("1_c2u1v")]
