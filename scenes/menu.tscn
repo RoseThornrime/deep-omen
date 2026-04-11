@@ -132,3 +132,4 @@ visible = false
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_pressed"]
+[connection signal="hidden" from="Options" to="." method="_on_options_hidden"]

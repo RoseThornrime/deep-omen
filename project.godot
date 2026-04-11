@@ -15,9 +15,14 @@ run/main_scene="uid://d1pp1o0pmpi58"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://broi11wvjoo0i"
+
 [autoload]
 
 Camera2d="*uid://bskbcrv6jvdfi"
+AudioManager="*uid://cnet71re24bsg"
 
 [physics]
 
