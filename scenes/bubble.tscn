@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://df0ofnm15poot"]
+
+[ext_resource type="Texture2D" uid="uid://ri8473a8vbhn" path="res://assets/images/info_banka.png" id="1_2vdav"]
+
+[node name="Bubble" type="Sprite2D" unique_id=1357280042]
+texture = ExtResource("1_2vdav")
