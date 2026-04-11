@@ -6,6 +6,65 @@
 [ext_resource type="Texture2D" uid="uid://but56cieqeh2q" path="res://assets/images/Table.png" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://dux7fupca1a8d" path="res://assets/images/Kula.png" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bp23n87avt0t7" path="res://assets/images/Kula_hover.png" id="5_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://bn4j1dns5oiyt" path="res://assets/images/tlo_wizja.png" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://br86jgl4a2m2t" path="res://scripts/vision.gd" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://dn4dtdmw7kvoi" path="res://assets/images/pytanie_dymek.png" id="9_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dtdgjeege2wxp" path="res://assets/images/odp_dymek.png" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://bvq5uj0snq60k" path="res://scripts/question.gd" id="10_kvuet"]
+[ext_resource type="Script" uid="uid://m468nmkbtuk6" path="res://scripts/answerA.gd" id="12_trtic"]
+[ext_resource type="Script" uid="uid://1tjchs780v7m" path="res://scripts/answerB.gd" id="13_ir15t"]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
 
 [node name="Game" type="Node2D" unique_id=2060013258]
 script = ExtResource("1_yqjtg")
@@ -17,31 +76,35 @@ texture = ExtResource("2_p57ef")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1088311552]
 
 [node name="Bar" parent="." unique_id=585504706 instance=ExtResource("1_uwrxv")]
-offset_left = -470.0
-offset_top = -313.0
-offset_right = -390.0
-offset_bottom = -286.0
+offset_left = 375.0
+offset_top = -176.19751
+offset_right = 455.0
+offset_bottom = -149.19751
+rotation = -1.5707964
 scale = Vector2(1.6100309, 1.6100309)
 
 [node name="Bar2" parent="." unique_id=1728063209 instance=ExtResource("1_uwrxv")]
-offset_left = -249.0
-offset_top = -313.0
-offset_right = -169.0
-offset_bottom = -286.0
+offset_left = 416.0
+offset_top = -173.19751
+offset_right = 496.0
+offset_bottom = -146.19751
+rotation = -1.5707964
 scale = Vector2(1.6100309, 1.6100309)
 
 [node name="Bar3" parent="." unique_id=925682859 instance=ExtResource("1_uwrxv")]
-offset_left = 94.0
-offset_top = -313.0
-offset_right = 174.0
-offset_bottom = -286.0
+offset_left = 462.0
+offset_top = -178.19751
+offset_right = 542.0
+offset_bottom = -151.19751
+rotation = -1.5707964
 scale = Vector2(1.6100309, 1.6100309)
 
 [node name="Bar4" parent="." unique_id=1358661932 instance=ExtResource("1_uwrxv")]
-offset_left = 329.0
-offset_top = -313.0
-offset_right = 409.0
-offset_bottom = -286.0
+offset_left = 515.0
+offset_top = -172.19748
+offset_right = 595.0
+offset_bottom = -145.19748
+rotation = -1.5707964
 scale = Vector2(1.6100309, 1.6100309)
 
 [node name="Button" type="Button" parent="." unique_id=80474204]
@@ -63,7 +126,7 @@ position = Vector2(-16, 131)
 scale = Vector2(0.6975528, 0.6975528)
 texture = ExtResource("3_iywne")
 
-[node name="Ball" type="TextureButton" parent="." unique_id=1758893872]
+[node name="Ball" type="TextureButton" parent="." unique_id=652799301]
 offset_left = -111.0
 offset_top = -65.0
 offset_right = 239.0
@@ -72,5 +135,86 @@ scale = Vector2(0.61020833, 0.61020833)
 texture_normal = ExtResource("4_p57ef")
 texture_hover = ExtResource("5_u5sy4")
 
+[node name="Vision" type="TextureButton" parent="." unique_id=470464829]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -571.99994
+offset_top = -322.0
+offset_right = 1348.0
+offset_bottom = 758.0
+scale = Vector2(0.5953417, 0.5953417)
+texture_normal = ExtResource("7_u5sy4")
+script = ExtResource("8_gee14")
+
+[node name="Timer" type="Timer" parent="Vision" unique_id=1283309001]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vision" unique_id=924194276]
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="Question" type="Sprite2D" parent="." unique_id=1885812970]
+position = Vector2(5, -151.00002)
+scale = Vector2(0.62582517, 0.62582517)
+texture = ExtResource("9_vtaks")
+script = ExtResource("10_kvuet")
+
+[node name="Label" type="Label" parent="Question" unique_id=1801108421]
+offset_left = -402.66837
+offset_top = -142.21222
+offset_right = 359.33163
+offset_bottom = 108.656555
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Siema
+Jestem małym syrenkom"
+horizontal_alignment = 1
+
+[node name="Answer" type="TextureButton" parent="." unique_id=1370405081]
+offset_left = -547.0
+offset_top = -77.0
+offset_right = 76.0
+offset_bottom = 411.0
+scale = Vector2(0.68183947, 0.68183947)
+texture_normal = ExtResource("10_kvpfn")
+script = ExtResource("12_trtic")
+
+[node name="Label" type="Label" parent="Answer" unique_id=1460274474]
+layout_mode = 0
+offset_left = 73.331024
+offset_top = 131.99588
+offset_right = 561.7158
+offset_bottom = 382.78806
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Siema
+Jestem małym
+syrenkom"
+horizontal_alignment = 1
+
+[node name="Answer2" type="TextureButton" parent="." unique_id=554740838]
+offset_left = 118.0
+offset_top = -81.0
+offset_right = 741.0
+offset_bottom = 407.0
+scale = Vector2(0.68183947, 0.68183947)
+texture_normal = ExtResource("10_kvpfn")
+script = ExtResource("13_ir15t")
+
+[node name="Label" type="Label" parent="Answer2" unique_id=950981730]
+layout_mode = 0
+offset_left = 73.331024
+offset_top = 131.99588
+offset_right = 561.7158
+offset_bottom = 382.78806
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Siema
+Jestem małym
+syrenkom"
+horizontal_alignment = 1
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="Ball" to="." method="_on_ball_button_down"]
+[connection signal="button_down" from="Vision" to="Vision" method="_on_button_down"]
+[connection signal="timeout" from="Vision/Timer" to="Vision" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Vision/AnimationPlayer" to="Vision" method="_on_animation_player_animation_finished"]
