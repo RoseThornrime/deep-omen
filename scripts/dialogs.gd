@@ -15,6 +15,7 @@ var marynarz = false
 var syrena = false
 var navigator = false
 var shark = false
+var fish = false
 
 func guest(tekst):
 	q_label.text=tekst
@@ -114,15 +115,54 @@ func story4():
 	ball.disabled=false
 
 func story4_1():
-	pass
+	guest(
+		"czy znajdę przekąskę?"
+	)
+	a2(
+		"tych wodach niestety nie, musisz poszukać gdzieś indziej"
+	)
+	a1(
+		"okolicy pływa człowiek, przewiduje że w końcu go znajdziesz"
+	)
+	
+
+func story4_fin():
+	if navigator:
+		guest(
+			"haha udał mi się łów, niesamowite że rekin pływał tak blisko powierzchni. upoluje je wszystkie."
+		)
+	if shark:
+		guest("och wiedźmo, czy mogę ukryć się tu przed rekinem?")
+		pc("dobrze")
+		guest("wiesz... przed chwila zdawało mi się że umieram, a teraz jestem bezpieczny! dzięki ci o wielki żółwiu")
+		pc("żółwiu?")
+		guest("potężna kreatura hehe, uratowała mnie")
+		pc("nie sądzę")
+	else:
+		guest("…")
+	timer.start()
+
+func story5():
+	guest("ah tyle tej piany morskiej, nienawidzę jej. cały czas wchodzi mi w skrzela")
+	pc("co ja mam z tym zrobić?")
+	guest("nie wiem, jesteś wiedźmą wyczaruj coś")
+	ball.disabled=false
+
+func story5_1():
+	guest("czy pochłonie mnie ta trucizna?")
+	a2("no nie wiem, takim rybom jak ty taka piana będzie szkodzić latami")
+	a1("piana zniknie.. nie ma paniki")
 
 
-
-
-
-
-
-
+func story5_fin():
+	if fish:
+		guest("czyli co? co jest powodem tej sytuacji?")
+		pc("tryton oczywiście")
+		guest("wiedziałam")
+	else:
+		guest("ale kiedy?")
+		pc("niezbadane są wyniki przyszłości")
+		guest("beznadziejna ta cała magia")
 
 
 
@@ -140,6 +180,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				story3_1()
 			4:
 				story4_1()
+			5:
+				story5_1()
 
 func _on_answer_button_down() -> void:
 	answer_buble.hide()
@@ -153,8 +195,10 @@ func _on_answer_button_down() -> void:
 			timer.start()
 		3:
 			story3_fin()
-		#4:
-			#story4_fin()
+		4:
+			story4_fin()
+		5:
+			story5_fin()
 
 func _on_answer_2_button_down() -> void:
 	answer_buble.hide()
@@ -169,6 +213,10 @@ func _on_answer_2_button_down() -> void:
 			timer.start()
 		3:
 			story3_fin()
+		4:
+			story4_fin()
+		5:
+			story5_fin()
 
 
 func _on_timer_timeout() -> void:
@@ -183,3 +231,7 @@ func _on_timer_timeout() -> void:
 			story3()
 		4:
 			story4()
+		5:
+			story5()
+		#6:
+			#story6()
