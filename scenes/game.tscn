@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://3bx6f73xcw7g"]
+
+[ext_resource type="PackedScene" uid="uid://6x8sdyenyoqw" path="res://scenes/bar.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://fsqt2cx2cpce" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://2b1fdhw3q7mu" path="res://assets/images/tlo_.png" id="2_p57ef"]
+[ext_resource type="Texture2D" uid="uid://but56cieqeh2q" path="res://assets/images/Table.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://dux7fupca1a8d" path="res://assets/images/Kula.png" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://bp23n87avt0t7" path="res://assets/images/Kula_hover.png" id="5_u5sy4"]
+
+[node name="Game" type="Node2D" unique_id=2060013258]
+script = ExtResource("1_yqjtg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1791660293]
+scale = Vector2(0.59648246, 0.59648246)
+texture = ExtResource("2_p57ef")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1088311552]
+
+[node name="Bar" parent="." unique_id=585504706 instance=ExtResource("1_uwrxv")]
+offset_left = -470.0
+offset_top = -313.0
+offset_right = -390.0
+offset_bottom = -286.0
+scale = Vector2(1.6100309, 1.6100309)
+
+[node name="Bar2" parent="." unique_id=1728063209 instance=ExtResource("1_uwrxv")]
+offset_left = -249.0
+offset_top = -313.0
+offset_right = -169.0
+offset_bottom = -286.0
+scale = Vector2(1.6100309, 1.6100309)
+
+[node name="Bar3" parent="." unique_id=925682859 instance=ExtResource("1_uwrxv")]
+offset_left = 94.0
+offset_top = -313.0
+offset_right = 174.0
+offset_bottom = -286.0
+scale = Vector2(1.6100309, 1.6100309)
+
+[node name="Bar4" parent="." unique_id=1358661932 instance=ExtResource("1_uwrxv")]
+offset_left = 329.0
+offset_top = -313.0
+offset_right = 409.0
+offset_bottom = -286.0
+scale = Vector2(1.6100309, 1.6100309)
+
+[node name="Button" type="Button" parent="." unique_id=80474204]
+offset_left = -422.0
+offset_top = -130.0
+offset_right = -414.0
+offset_bottom = -122.0
+scale = Vector2(8.7439165, 8.7439165)
+
+[node name="Button2" type="Button" parent="." unique_id=1857045629]
+offset_left = 313.0
+offset_top = -130.0
+offset_right = 321.0
+offset_bottom = -122.0
+scale = Vector2(8.7439165, 8.7439165)
+
+[node name="Table" type="Sprite2D" parent="." unique_id=689543537]
+position = Vector2(-16, 131)
+scale = Vector2(0.6975528, 0.6975528)
+texture = ExtResource("3_iywne")
+
+[node name="Ball" type="TextureButton" parent="." unique_id=1758893872]
+offset_left = -111.0
+offset_top = -65.0
+offset_right = 239.0
+offset_bottom = 379.0
+scale = Vector2(0.61020833, 0.61020833)
+texture_normal = ExtResource("4_p57ef")
+texture_hover = ExtResource("5_u5sy4")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
