@@ -24,4 +24,11 @@ func a2(tekst):
 
 func story0():
 	guest("wiedźmo morska! jestem skończony. nie wiem jaka mnie przyszłość czeka. umiesz przepowiadać? pomórz mi")
-	
+
+func story0_1():
+	guest("czy będę bezpieczny na powierzchni?")
+	a1("nie, utoniesz nim dopłyniesz. powinieneś zostać na dnie i pomóc podwodnym mieszkańcom")
+	a2("tak, na powierzchni znajdziesz tratwę")
+
+func story0_fin():
+	guest("dziękuje ci za pomoc, nie mam dużo ale proszę")
