@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://b3id4kj56k6j1"]
 
 [ext_resource type="Texture2D" uid="uid://dn4dtdmw7kvoi" path="res://assets/images/pytanie_dymek.png" id="1_cnab0"]
-[ext_resource type="Script" uid="uid://bvq5uj0snq60k" path="res://scripts/question.gd" id="2_hpy13"]
+[ext_resource type="Script" uid="uid://bgo6u2firyxbs" path="res://scripts/dialogs.gd" id="1_ysdbi"]
 [ext_resource type="Texture2D" uid="uid://dtdgjeege2wxp" path="res://assets/images/odp_dymek.png" id="3_l6cwd"]
-[ext_resource type="Script" uid="uid://m468nmkbtuk6" path="res://scripts/answerA.gd" id="4_ewleq"]
-[ext_resource type="Script" uid="uid://1tjchs780v7m" path="res://scripts/answerB.gd" id="5_6gni0"]
 
 [node name="Dialogs" type="Sprite2D" unique_id=1459008870]
+script = ExtResource("1_ysdbi")
 
 [node name="Question" type="Sprite2D" parent="." unique_id=202896075]
 position = Vector2(5, -151.00002)
 scale = Vector2(0.62582517, 0.62582517)
 texture = ExtResource("1_cnab0")
-script = ExtResource("2_hpy13")
 
 [node name="Label" type="Label" parent="Question" unique_id=659366465]
 offset_left = -402.66837
@@ -32,7 +30,6 @@ offset_right = 76.0
 offset_bottom = 411.0
 scale = Vector2(0.68183947, 0.68183947)
 texture_normal = ExtResource("3_l6cwd")
-script = ExtResource("4_ewleq")
 
 [node name="Label" type="Label" parent="Answer" unique_id=706448277]
 layout_mode = 0
@@ -54,7 +51,6 @@ offset_right = 741.0
 offset_bottom = 407.0
 scale = Vector2(0.68183947, 0.68183947)
 texture_normal = ExtResource("3_l6cwd")
-script = ExtResource("5_6gni0")
 
 [node name="Label" type="Label" parent="Answer2" unique_id=1590438773]
 layout_mode = 0
