@@ -15,6 +15,10 @@ var marynarz = false
 var syrena = false
 var navigator = false
 var shark = false
+var turtle = false
+var rule_alone = false
+var guide = false
+var disappearing = false
 
 func guest(tekst):
 	q_label.text=tekst
@@ -116,15 +120,187 @@ func story4():
 func story4_1():
 	pass
 
+func story6():
+	guest(
+		"wiedźmooooooo pomórz mi, zaraz zniknę, czuje że znikam"
+	)
+	ball.disabled = false
 
+func story6_1():
+	guest(
+		"czy naprawdę zniknę?"
+	)
+	a2(
+		"żesz odwrócić twój stan... wystarczy że będziesz się rozwijać"
+	)
+	a1(
+		"niestety taka jest kolej rzeczy, szkoda"
+	)
+	
+func story6_fin():
+	if disappearing:
+		guest(
+			"to znaczy?"
+		)
+		pc(
+			"widzisz... pewna ryba jest zaczarowana, może odwrócić znikanie twojej piany"
+		)
+		guest(
+			"jak? gdzie?"
+		)
+		pc(
+			"wyczuwam że... eeee"
+		)
+		guest(
+			"nie ważne, muszę ją jak najszybciej znaleźć"
+		)
+		return
+	guest(
+		"jak to! NIE TO NIEMOŻLIWE"
+	)
+	pc(
+		"sama widzisz że powoli znikasz"
+	)
+	guest(
+		"ah tak"
+	)
 
+func story7():
+	guest(
+		"mój żółw, jest moim najlepszym przyjacielem. chciałabym wiedzieć czy będziemy już ze sobą na zawsze!"
+	)
+	pc(
+		"co?"
+	)
+	guest(
+		"coś nie tak wiedźmo?"
+	)
+	pc(
+		"mogę się przyjrzeć twojemu żółwiowi?"
+	)
+	guest(
+		"nie! on jest moim przyjacielem NIE DOTYKAJ GO, mówię ci nie-do-ty-Kaj"
+	)
+	ball.disabled=false
 
+	
+func story7_1():
+	guest(
+		"to co mówi przyszłość?"
+	)
+	a2(
+		"myślę że stanowicie słodka parę znajomych hehe, na zawsze zostaniecie razem"
+	)
+	a1(
+		"ten żółw, jest... on"
+	)
+	
+func story7_fin():
+	if turtle:
+		guest(
+				"<żółw> dobry wybór śmiertelniku
+				<girl> tak się cieszę! zostaniemy ze sobą na zawsze, tutaj na dnie morza"
+			)
+		return
+	pc("ten żółw, jest... on")
+	guest("he?")
+	pc("ON JEST JAKIMŚ STRASZNYM BYTEM! powinnaś go puścić")
+		
+func story8():
+	if not turtle:
+		guest(
+			"nawet nie wiesz z kim masz do czynienia!",	
+		)
+		pc(
+			"oj wiem bardzo dobrze"
+		)
+		guest(
+			"spróbuj walczyć ze mną, no dalej popatrz w swoją kule i zobacz przyszłość"
+		)
+		ball.disabled = true
+		return
+	guest(
+		"dziękuje ze mnie nie wydałaś śmiertelniczko"
+	)
+	pc(
+		"nie ma za co..."
+	)
+	guest(
+		"wyczuwam że chcesz mocy! razem możemy wprowadzić chaos w całym królestwie"
+	)
+	ball.disabled = true
+	
+func story8_1():
+	guest("czy przyłączysz się do mnie?")
+	a2("chce rządzić sama")
+	a1("rządzmy razem!")
+	
+func story8_fin():
+	if rule_alone:
+		guest(
+			"ah tak, wiedz wybierasz przegraną. Myślisz że kto napisał list o utracie poparcia u trytona?"
+		)
+		pc(
+			"nie ważne, przekazałeś mi to za darmo"
+		)
+		guest(
+			"jeszcze zobaczysz "
+		)
+		return
+	
+	
+func story9():
+	guest(
+		"witaj wiedźmo, przybyłem aby zapytać się o porade "
+	)
+	pc(
+		"poradę?"
+	)
+	guest(
+		"usłyszałem że przepowiadasz przyszłość, patrze na nastroje, nie każdy wspiera trytona. chciałbym wiedzieć jaka jest ma przyszłość u jego boku"
+	)
+	pc(
+		"dobrze trafiłeś"
+	)
+	ball.disabled = true
 
+func story9_1():
+	guest(
+		"co tam widzisz?"
+	)
+	a2(
+		"widzę przed tobą świetlaną przyszłość"
+	)
+	a1(
+		"widzę, widzę… bezrobocie"
+	)
 
-
-
-
-
+func story9_fin():
+	if guide:
+		guest(
+			"tak?"
+		)
+		pc(
+			"ale tylko u mojego boku"
+		)
+		guest(
+			"to znaczy?"
+		)
+		pc(
+			"jeśli pomożesz mi zdobyć stanowisko władcy mórz wszystko się ułoży"
+		)
+		return
+	guest(
+		"he?"
+	)
+	pc(
+		"niedługo stracisz prace, nie ma rady "
+	)
+	guest(
+		"wszystko jest bez sensu, odchodzę"
+	)
+		
+		
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -140,6 +316,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				story3_1()
 			4:
 				story4_1()
+			6:
+				story6_1()
+			7:
+				story7_1()
+			8:
+				story8_1()
+			9:
+				story9_1()
 
 func _on_answer_button_down() -> void:
 	answer_buble.hide()
@@ -155,6 +339,14 @@ func _on_answer_button_down() -> void:
 			story3_fin()
 		#4:
 			#story4_fin()
+		6:
+			story6_fin()
+		7: 
+			story7_fin()
+		8:
+			timer.start()
+		9:
+			story9_fin()
 
 func _on_answer_2_button_down() -> void:
 	answer_buble.hide()
@@ -169,6 +361,16 @@ func _on_answer_2_button_down() -> void:
 			timer.start()
 		3:
 			story3_fin()
+		6:
+			story6_fin()
+			disappearing = true
+		7: 
+			turtle = true
+			story7_fin()
+		8:
+			rule_alone = true
+			timer.start()
+			
 
 
 func _on_timer_timeout() -> void:
@@ -181,5 +383,10 @@ func _on_timer_timeout() -> void:
 			story2()
 		3:
 			story3()
+		6:
+			story7()
 		4:
 			story4()
+		9:
+			story9()
+			
