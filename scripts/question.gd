@@ -1,13 +1,18 @@
 extends Sprite2D
 
-var texts=[
+var dialog1=[
 	"o hejjjjj, widziałam że jakiś statek zatonął, ludzie są tacy piękni. chce wiedzieć czy mam przyszłość z pięknym nawigatorem który wpadł do wody",
-	"hej"
 ]
+var dialog2=["i jak?",]
 
-# Called when the node enters the scene tree for the first time.
+var answers=["ależ proszę syreneczko"]
+
+var answerA=["myślę że powinnaś iść za głosem serca"]
+
+var answerB=["powinnaś się poddać związki międzygatunkowe nigdy nie mają przyszłości"]
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 

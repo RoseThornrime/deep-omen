@@ -8,11 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bp23n87avt0t7" path="res://assets/images/Kula_hover.png" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://bn4j1dns5oiyt" path="res://assets/images/tlo_wizja.png" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://br86jgl4a2m2t" path="res://scripts/vision.gd" id="8_gee14"]
-[ext_resource type="Texture2D" uid="uid://dn4dtdmw7kvoi" path="res://assets/images/pytanie_dymek.png" id="9_vtaks"]
-[ext_resource type="Texture2D" uid="uid://dtdgjeege2wxp" path="res://assets/images/odp_dymek.png" id="10_kvpfn"]
-[ext_resource type="Script" uid="uid://bvq5uj0snq60k" path="res://scripts/question.gd" id="10_kvuet"]
-[ext_resource type="Script" uid="uid://m468nmkbtuk6" path="res://scripts/answerA.gd" id="12_trtic"]
-[ext_resource type="Script" uid="uid://1tjchs780v7m" path="res://scripts/answerB.gd" id="13_ir15t"]
+[ext_resource type="PackedScene" uid="uid://b3id4kj56k6j1" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -151,66 +147,7 @@ script = ExtResource("8_gee14")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Vision" unique_id=924194276]
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 
-[node name="Question" type="Sprite2D" parent="." unique_id=1885812970]
-position = Vector2(5, -151.00002)
-scale = Vector2(0.62582517, 0.62582517)
-texture = ExtResource("9_vtaks")
-script = ExtResource("10_kvuet")
-
-[node name="Label" type="Label" parent="Question" unique_id=1801108421]
-offset_left = -402.66837
-offset_top = -142.21222
-offset_right = 359.33163
-offset_bottom = 108.656555
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Siema
-Jestem małym syrenkom"
-horizontal_alignment = 1
-
-[node name="Answer" type="TextureButton" parent="." unique_id=1370405081]
-offset_left = -547.0
-offset_top = -77.0
-offset_right = 76.0
-offset_bottom = 411.0
-scale = Vector2(0.68183947, 0.68183947)
-texture_normal = ExtResource("10_kvpfn")
-script = ExtResource("12_trtic")
-
-[node name="Label" type="Label" parent="Answer" unique_id=1460274474]
-layout_mode = 0
-offset_left = 73.331024
-offset_top = 131.99588
-offset_right = 561.7158
-offset_bottom = 382.78806
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Siema
-Jestem małym
-syrenkom"
-horizontal_alignment = 1
-
-[node name="Answer2" type="TextureButton" parent="." unique_id=554740838]
-offset_left = 118.0
-offset_top = -81.0
-offset_right = 741.0
-offset_bottom = 407.0
-scale = Vector2(0.68183947, 0.68183947)
-texture_normal = ExtResource("10_kvpfn")
-script = ExtResource("13_ir15t")
-
-[node name="Label" type="Label" parent="Answer2" unique_id=950981730]
-layout_mode = 0
-offset_left = 73.331024
-offset_top = 131.99588
-offset_right = 561.7158
-offset_bottom = 382.78806
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "Siema
-Jestem małym
-syrenkom"
-horizontal_alignment = 1
+[node name="Dialogs" parent="." unique_id=1459008870 instance=ExtResource("9_0tnpc")]
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
