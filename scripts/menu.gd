@@ -4,28 +4,37 @@ extends Node2D
 @onready var credits = $Credits
 @onready var tutorial = $Tutorial
 
-@onready var bubble_active = false
+@onready var start_btn = $StartButton
+@onready var options_btn = $OptionsButton
+@onready var credits_btn = $CreditsButton
+@onready var tutorial_btn = $TutorialButton
+
+
+func hide_buttons():
+	start_btn.hide()
+	options_btn.hide()
+	credits_btn.hide()
+	tutorial_btn.hide()
+
+func show_buttons():
+	start_btn.show()
+	options_btn.show()
+	credits_btn.show()
+	tutorial_btn.show()
+		
+	
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_options_pressed() -> void:
-	if(bubble_active):
-		return
-	options.hidden = false
-	bubble_active = true
-	get_tree().change_scene_to_file("res://scenes/options.tscn")
+	options.show()
+	hide_buttons()
 
 func _on_credits_pressed() -> void:
-	if(bubble_active):
-		return
-	credits.hidden = false
-	bubble_active = true
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+	credits.show()
+	hide_buttons()
 
 func _on_tutorial_pressed() -> void:
-	if(bubble_active):
-		return
-	tutorial.hidden = false
-	bubble_active = true
-	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
+	tutorial.show()
+	hide_buttons()
