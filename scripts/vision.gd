@@ -10,8 +10,10 @@ var textures = [
 	preload("res://assets/images/wizja_slub.png"),
 	preload("res://assets/images/wizja_happymeal.png"),
 	preload("res://assets/images/wizja_piana.png"),
-	preload("res://assets/images/wizja_piana.png"),
+	#preload("res://assets/images/wizja_piana.png"),
+	#preload("res://assets/images/wizja_zolw.png"),
 	preload("res://assets/images/wizja_zolw.png"),
+	preload("res://assets/images/wizja_zwolnienie.png"),
 ]
 
 func _ready() -> void:
