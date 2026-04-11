@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Deep Omen"
-run/main_scene="uid://3bx6f73xcw7g"
+run/main_scene="uid://d1pp1o0pmpi58"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Camera2d="*uid://bskbcrv6jvdfi"
 
 [physics]
 

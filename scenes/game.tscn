@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bp23n87avt0t7" path="res://assets/images/Kula_hover.png" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://bn4j1dns5oiyt" path="res://assets/images/tlo_wizja.png" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://br86jgl4a2m2t" path="res://scripts/vision.gd" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://b3id4kj56k6j1" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -68,8 +68,6 @@ script = ExtResource("1_yqjtg")
 [node name="Background" type="Sprite2D" parent="." unique_id=1791660293]
 scale = Vector2(0.59648246, 0.59648246)
 texture = ExtResource("2_p57ef")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1088311552]
 
 [node name="Bar" parent="." unique_id=585504706 instance=ExtResource("1_uwrxv")]
 offset_left = 375.0

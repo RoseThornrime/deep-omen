@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d1pp1o0pmpi58"]
+
+[ext_resource type="Script" uid="uid://c7mlfn5svee2x" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="PackedScene" uid="uid://d2ed8n5fdkg2j" path="res://scenes/options.tscn" id="2_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://gm1b0ennl3tv" path="res://scenes/credits.tscn" id="3_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://cvg6kwjapo3c1" path="res://scenes/tutorial.tscn" id="4_g3eks"]
+
+[node name="Menu" type="Sprite2D" unique_id=993945970]
+script = ExtResource("1_yqeox")
+
+[node name="Options" parent="." unique_id=1900168259 instance=ExtResource("2_mhnvy")]
+visible = false
+
+[node name="Credits" parent="." unique_id=92045051 instance=ExtResource("3_4ytvr")]
+visible = false
+
+[node name="Tutorial" parent="." unique_id=1101348455 instance=ExtResource("4_g3eks")]
+visible = false
+
+[node name="StartButton" type="TextureButton" parent="." unique_id=509126768]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionsButton" type="TextureButton" parent="." unique_id=923759100]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreditsButton" type="TextureButton" parent="." unique_id=1247029664]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TutorialButton" type="TextureButton" parent="." unique_id=941681520]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_pressed"]
