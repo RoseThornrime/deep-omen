@@ -32,6 +32,7 @@ func _on_button_2_button_down() -> void:
 	
 
 func _on_ball_button_down() -> void:
+	$Ball.disabled=true
 	$Vision.show_vision(vision_nr)
 	vision_nr+=1
 	if vision_nr==4:

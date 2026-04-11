@@ -3,64 +3,80 @@
 [ext_resource type="Texture2D" uid="uid://dn4dtdmw7kvoi" path="res://assets/images/pytanie_dymek.png" id="1_cnab0"]
 [ext_resource type="Script" uid="uid://bgo6u2firyxbs" path="res://scripts/dialogs.gd" id="1_ysdbi"]
 [ext_resource type="Texture2D" uid="uid://dtdgjeege2wxp" path="res://assets/images/odp_dymek.png" id="3_l6cwd"]
+[ext_resource type="Texture2D" uid="uid://ddtqjhfiau63u" path="res://assets/images/odp_dymek_hover.png" id="4_dmgfr"]
 
 [node name="Dialogs" type="Sprite2D" unique_id=1459008870]
 script = ExtResource("1_ysdbi")
 
 [node name="Question" type="Sprite2D" parent="." unique_id=202896075]
+visible = false
 position = Vector2(5, -151.00002)
 scale = Vector2(0.62582517, 0.62582517)
 texture = ExtResource("1_cnab0")
 
 [node name="Label" type="Label" parent="Question" unique_id=659366465]
 offset_left = -402.66837
-offset_top = -142.21222
+offset_top = -135.82066
 offset_right = 359.33163
-offset_bottom = 108.656555
+offset_bottom = 115.04811
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym syrenkom"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Answer" type="TextureButton" parent="." unique_id=1826774248]
+visible = false
 offset_left = -547.0
 offset_top = -77.0
 offset_right = 76.0
 offset_bottom = 411.0
 scale = Vector2(0.68183947, 0.68183947)
 texture_normal = ExtResource("3_l6cwd")
+texture_hover = ExtResource("4_dmgfr")
 
 [node name="Label" type="Label" parent="Answer" unique_id=706448277]
 layout_mode = 0
-offset_left = 73.331024
-offset_top = 131.99588
-offset_right = 561.7158
-offset_bottom = 382.78806
+offset_left = 63.06468
+offset_top = 112.92981
+offset_right = 551.44946
+offset_bottom = 363.722
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym
 syrenkom"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Answer2" type="TextureButton" parent="." unique_id=1787289771]
+visible = false
 offset_left = 118.0
 offset_top = -81.0
 offset_right = 741.0
 offset_bottom = 407.0
 scale = Vector2(0.68183947, 0.68183947)
 texture_normal = ExtResource("3_l6cwd")
+texture_hover = ExtResource("4_dmgfr")
 
 [node name="Label" type="Label" parent="Answer2" unique_id=1590438773]
 layout_mode = 0
-offset_left = 73.331024
-offset_top = 131.99588
-offset_right = 561.7158
-offset_bottom = 382.78806
+offset_left = 65.99794
+offset_top = 104.13008
+offset_right = 554.38275
+offset_bottom = 354.92224
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym
 syrenkom"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=844350392]
+wait_time = 2.0
+
+[connection signal="button_down" from="Answer" to="." method="_on_answer_button_down"]
+[connection signal="button_down" from="Answer2" to="." method="_on_answer_2_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bp23n87avt0t7" path="res://assets/images/Kula_hover.png" id="5_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://bn4j1dns5oiyt" path="res://assets/images/tlo_wizja.png" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://br86jgl4a2m2t" path="res://scripts/vision.gd" id="8_gee14"]
-[ext_resource type="PackedScene" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://b3id4kj56k6j1" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -126,8 +126,11 @@ offset_top = -65.0
 offset_right = 239.0
 offset_bottom = 379.0
 scale = Vector2(0.61020833, 0.61020833)
+disabled = true
 texture_normal = ExtResource("4_p57ef")
 texture_hover = ExtResource("5_u5sy4")
+
+[node name="Dialogs" parent="." unique_id=1459008870 instance=ExtResource("9_0tnpc")]
 
 [node name="Vision" type="TextureButton" parent="." unique_id=470464829]
 visible = false
@@ -145,11 +148,10 @@ script = ExtResource("8_gee14")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Vision" unique_id=924194276]
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 
-[node name="Dialogs" parent="." unique_id=1459008870 instance=ExtResource("9_0tnpc")]
-
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="Ball" to="." method="_on_ball_button_down"]
 [connection signal="button_down" from="Vision" to="Vision" method="_on_button_down"]
 [connection signal="timeout" from="Vision/Timer" to="Vision" method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Vision/AnimationPlayer" to="Dialogs" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="Vision/AnimationPlayer" to="Vision" method="_on_animation_player_animation_finished"]
