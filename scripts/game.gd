@@ -4,6 +4,9 @@ var fauna=50
 var ppl=50
 var chaos=50
 var power=50
+var vision_nr=0
+
+@onready var vision: TextureButton = $Vision
 
 func update_fauna(value):
 	fauna+=value
@@ -27,3 +30,9 @@ func _on_button_button_down() -> void:
 func _on_button_2_button_down() -> void:
 	update_fauna(10)
 	
+
+func _on_ball_button_down() -> void:
+	$Vision.show_vision(vision_nr)
+	vision_nr+=1
+	if vision_nr==4:
+		vision_nr=0
