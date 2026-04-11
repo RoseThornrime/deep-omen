@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://6x8sdyenyoqw"]
+
+[ext_resource type="Script" uid="uid://bcqvuxa6kea74" path="res://scripts/bar.gd" id="1_bwlfd"]
+[ext_resource type="Texture2D" uid="uid://dneg51gd0wuh8" path="res://assets/images/hpbar.png" id="2_x848m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdsxc"]
+atlas = ExtResource("2_x848m")
+region = Rect2(0, 17, 80, 14)
+
+[node name="Bar" type="CenterContainer" unique_id=585504706]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("1_bwlfd")
+
+[node name="UnderBar" type="TextureProgressBar" parent="." unique_id=1821235898]
+layout_mode = 2
+value = 100.0
+texture_progress = SubResource("AtlasTexture_qdsxc")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="UnderBar2" type="TextureProgressBar" parent="." unique_id=754550179]
+layout_mode = 2
+value = 100.0
+texture_progress = SubResource("AtlasTexture_qdsxc")
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="OverBar" type="TextureProgressBar" parent="." unique_id=406714947]
+layout_mode = 2
+value = 100.0
+texture_progress = SubResource("AtlasTexture_qdsxc")
+
+[node name="Button" type="Button" parent="." unique_id=1054133909]
+layout_mode = 2
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
