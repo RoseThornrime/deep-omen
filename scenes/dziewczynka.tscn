@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cccuom0kwioxm"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_bceyp"]
+[ext_resource type="Texture2D" uid="uid://ctp04fuk3gyvn" path="res://assets/images/dziewczynka podstawa.png" id="2_hhk3o"]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Dziewczynka" type="Node2D" unique_id=1650885854]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_bceyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217648277]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("2_hhk3o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=122351411]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1894505715]
