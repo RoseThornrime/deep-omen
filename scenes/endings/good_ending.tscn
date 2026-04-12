@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwr4u7tvvnxxj"]
 
-[ext_resource type="Script" uid="uid://bovinjr4wvb5q" path="res://scripts/ending.gd" id="1_p1psx"]
+[ext_resource type="Script" path="res://scripts/ending.gd" id="1_p1psx"]
 [ext_resource type="Texture2D" uid="uid://dk8fqhsgd7otp" path="res://assets/images/Zakonczeniehappy.png" id="2_p1psx"]
 [ext_resource type="Texture2D" uid="uid://ddsw31k55jk0" path="res://assets/images/menu_guzik.png" id="3_mtf7x"]
 [ext_resource type="Texture2D" uid="uid://smcxfu1en8uc" path="res://assets/images/menu_guzik_hover.png" id="4_4oenq"]
@@ -58,6 +58,59 @@ _data = {
 &"show_viz": SubResource("Animation_vtaks")
 }
 
+[sub_resource type="Animation" id="Animation_qmrgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mghbb"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k1kot"]
+resource_name = "show_viz"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1psx"]
+_data = {
+&"RESET": SubResource("Animation_qmrgk"),
+&"hide_viz": SubResource("Animation_mghbb"),
+&"show_viz": SubResource("Animation_k1kot")
+}
+
 [node name="GoodEnding" type="Node2D" unique_id=912427720]
 scale = Vector2(0.596, 0.596)
 script = ExtResource("1_p1psx")
@@ -78,6 +131,7 @@ texture_pressed = ExtResource("4_4oenq")
 texture_hover = ExtResource("4_4oenq")
 
 [node name="Label" type="Label" parent="ReturnButton" unique_id=378608154]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,5 +153,9 @@ root_node = NodePath("../ReturnButton")
 libraries/ = SubResource("AnimationLibrary_k1kot")
 
 [node name="Timer" type="Timer" parent="." unique_id=20803783]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=442515005]
+root_node = NodePath("../ReturnButton/Label")
+libraries/ = SubResource("AnimationLibrary_p1psx")
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
