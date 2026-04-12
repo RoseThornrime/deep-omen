@@ -33,6 +33,23 @@ var fish = false
 
 signal clicked
 
+func end_game(ending):
+	if ending == "chaos":
+		get_tree().change_scene_to_file("res://scenes/endings/chaos_ending.tscn")
+		return
+	if ending == "good":
+		get_tree().change_scene_to_file("res://scenes/endings/good_ending.tscn")
+		return		
+	if ending == "goodturtle":
+		get_tree().change_scene_to_file("res://scenes/endings/good_turtle_ending.tscn")
+		return
+	if ending == "bad":
+		get_tree().change_scene_to_file("res://scenes/endings/bad_ending.tscn")
+		return
+	if ending == "badturtle":
+		get_tree().change_scene_to_file("res://scenes/endings/bad_turtle_ending.tscn")
+		return
+
 func guest(tekst):
 	q_label.text=tekst
 	question_buble.show()

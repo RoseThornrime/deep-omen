@@ -5,9 +5,12 @@ extends Node
 
 @onready var music = {
 	"menu": "res://assets/audio/ost/harp.mp3",
-	"intro": "res://assets/audio/ost/water.wav",
+	"win": "res://assets/audio/ost/water.mp3",
 	"ball": "res://assets/audio/ost/mystery.ogg",
-	"game": "res://assets/audio/ost/witch.mp3"
+	"game": "res://assets/audio/ost/witch.mp3",
+	"loss": "res://assets/audio/ost/loss.ogg",
+	"chaos": "res://assets/audio/ost/apocalyptic.mp3",
+	"story": "res://assets/audio/ost/story.mp3"
 }
 
 @onready var effects = {
