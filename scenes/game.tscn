@@ -84,6 +84,47 @@ script = ExtResource("1_yqjtg")
 scale = Vector2(0.59648246, 0.59648246)
 texture = ExtResource("2_p57ef")
 
+[node name="Button" type="Button" parent="." unique_id=80474204]
+visible = false
+offset_left = -422.0
+offset_top = -130.0
+offset_right = -414.0
+offset_bottom = -122.0
+scale = Vector2(8.7439165, 8.7439165)
+
+[node name="Button2" type="Button" parent="." unique_id=1857045629]
+visible = false
+offset_left = 313.0
+offset_top = -130.0
+offset_right = 321.0
+offset_bottom = -122.0
+scale = Vector2(8.7439165, 8.7439165)
+
+[node name="Rozbitek" parent="." unique_id=121630932 instance=ExtResource("4_37s47")]
+
+[node name="Doradca" parent="." unique_id=67738828 instance=ExtResource("5_bt5mj")]
+
+[node name="Syrena" parent="." unique_id=1416740149 instance=ExtResource("6_e1j6l")]
+
+[node name="Nawigator" parent="." unique_id=2094031621 instance=ExtResource("7_pl11u")]
+
+[node name="Ryba" parent="." unique_id=1796310397 instance=ExtResource("8_bhx41")]
+
+[node name="Ranny" parent="." unique_id=1905256398 instance=ExtResource("9_qnb83")]
+
+[node name="Martwy" parent="." unique_id=579513290 instance=ExtResource("10_sww3w")]
+
+[node name="Dziewczynka" parent="." unique_id=1650885854 instance=ExtResource("11_suyxu")]
+
+[node name="Zolw" parent="." unique_id=1409139520 instance=ExtResource("12_sgl2t")]
+position = Vector2(0, 87.99999)
+
+[node name="Piana" parent="." unique_id=2115514050 instance=ExtResource("13_bt5mj")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Rekin" parent="." unique_id=840497621 instance=ExtResource("13_qouja")]
+position = Vector2(203, 0)
+
 [node name="Bar" parent="." unique_id=585504706 instance=ExtResource("1_uwrxv")]
 offset_left = 410.0
 offset_top = -170.0
@@ -131,47 +172,6 @@ texture = ExtResource("30_wljb1")
 position = Vector2(530, -130)
 scale = Vector2(0.23260328, 0.23260328)
 texture = ExtResource("29_suyxu")
-
-[node name="Button" type="Button" parent="." unique_id=80474204]
-visible = false
-offset_left = -422.0
-offset_top = -130.0
-offset_right = -414.0
-offset_bottom = -122.0
-scale = Vector2(8.7439165, 8.7439165)
-
-[node name="Button2" type="Button" parent="." unique_id=1857045629]
-visible = false
-offset_left = 313.0
-offset_top = -130.0
-offset_right = 321.0
-offset_bottom = -122.0
-scale = Vector2(8.7439165, 8.7439165)
-
-[node name="Rozbitek" parent="." unique_id=121630932 instance=ExtResource("4_37s47")]
-
-[node name="Doradca" parent="." unique_id=67738828 instance=ExtResource("5_bt5mj")]
-
-[node name="Syrena" parent="." unique_id=1416740149 instance=ExtResource("6_e1j6l")]
-
-[node name="Nawigator" parent="." unique_id=2094031621 instance=ExtResource("7_pl11u")]
-
-[node name="Ryba" parent="." unique_id=1796310397 instance=ExtResource("8_bhx41")]
-
-[node name="Ranny" parent="." unique_id=1905256398 instance=ExtResource("9_qnb83")]
-
-[node name="Martwy" parent="." unique_id=579513290 instance=ExtResource("10_sww3w")]
-
-[node name="Dziewczynka" parent="." unique_id=1650885854 instance=ExtResource("11_suyxu")]
-
-[node name="Zolw" parent="." unique_id=1409139520 instance=ExtResource("12_sgl2t")]
-position = Vector2(0, 56.999996)
-
-[node name="Piana" parent="." unique_id=2115514050 instance=ExtResource("13_bt5mj")]
-scale = Vector2(0.5, 0.5)
-
-[node name="Rekin" parent="." unique_id=840497621 instance=ExtResource("13_qouja")]
-position = Vector2(205, 0)
 
 [node name="Table" type="Sprite2D" parent="." unique_id=689543537]
 position = Vector2(-16, 131)
