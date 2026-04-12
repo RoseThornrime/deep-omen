@@ -388,6 +388,10 @@ func story7():
 		touch him. I'm telling
 		you, DO-NOT-TOUCH."
 	)
+	$"../jumpscare".show()
+	await get_tree().create_timer(0.3).timeout
+	$"../jumpscare".hide()
+	
 	ball.disabled=false
 
 	

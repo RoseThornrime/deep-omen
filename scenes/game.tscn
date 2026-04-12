@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://d0tsntgx2j6nr" path="res://assets/images/Ikonafauna.png" id="29_qouja"]
 [ext_resource type="Texture2D" uid="uid://b8ra0j41flban" path="res://assets/images/Ikonachaos.png" id="29_suyxu"]
 [ext_resource type="Texture2D" uid="uid://ovapg52072wn" path="res://assets/images/Ikonaczlowiek.png" id="30_wljb1"]
+[ext_resource type="Texture2D" uid="uid://h0bac6punydv" path="res://assets/images/Jumpscere.png" id="34_js0lu"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -201,6 +202,11 @@ texture = ExtResource("30_wljb1")
 position = Vector2(530, -130)
 scale = Vector2(0.23260328, 0.23260328)
 texture = ExtResource("29_suyxu")
+
+[node name="jumpscare" type="Sprite2D" parent="." unique_id=397729769]
+visible = false
+scale = Vector2(0.569, 0.569)
+texture = ExtResource("34_js0lu")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
