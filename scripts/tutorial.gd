@@ -7,6 +7,7 @@ extends Node2D
 
 func _ready():
 	label.text = "Next"
+	pages = 1
 	page1.show()
 
 func _on_return_button_pressed() -> void:

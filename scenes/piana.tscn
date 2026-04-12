@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bo7iyuncrnnms"]
+[gd_scene format=3 uid="uid://bncmnwcub6xs3"]
 
-[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_oywv1"]
-[ext_resource type="Texture2D" uid="uid://bvdfbm5fysxt5" path="res://assets/images/rekin baza.png" id="2_oywv1"]
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_brupk"]
+[ext_resource type="Texture2D" uid="uid://bw2jwersns1jd" path="res://assets/images/piana startowa po korekcie.png" id="2_brupk"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -55,16 +55,16 @@ _data = {
 &"show_viz": SubResource("Animation_vtaks")
 }
 
-[node name="Rekin" type="Node2D" unique_id=2115514050]
+[node name="Piana" type="Node2D" unique_id=2115514050]
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.4, 0.4)
-script = ExtResource("1_oywv1")
+script = ExtResource("1_brupk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1875707427]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-119.999985, -77.5)
 scale = Vector2(1.3471357, 1.3471357)
-texture = ExtResource("2_oywv1")
+texture = ExtResource("2_brupk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1935748002]
 root_node = NodePath("../Sprite2D")

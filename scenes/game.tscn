@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bqfnsqi0weugr" path="res://scenes/martwy.tscn" id="10_sww3w"]
 [ext_resource type="PackedScene" uid="uid://cccuom0kwioxm" path="res://scenes/dziewczynka.tscn" id="11_suyxu"]
 [ext_resource type="PackedScene" uid="uid://dai53v45vog0n" path="res://scenes/zolw.tscn" id="12_sgl2t"]
+[ext_resource type="PackedScene" uid="uid://bncmnwcub6xs3" path="res://scenes/piana.tscn" id="13_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://bo7iyuncrnnms" path="res://scenes/rekin.tscn" id="13_qouja"]
 [ext_resource type="Texture2D" uid="uid://d0tsntgx2j6nr" path="res://assets/images/Ikonafauna.png" id="29_qouja"]
 [ext_resource type="Texture2D" uid="uid://b8ra0j41flban" path="res://assets/images/Ikonachaos.png" id="29_suyxu"]
@@ -149,7 +150,9 @@ scale = Vector2(8.7439165, 8.7439165)
 
 [node name="Zolw" parent="." unique_id=1409139520 instance=ExtResource("12_sgl2t")]
 
-[node name="Rekin" parent="." unique_id=2115514050 instance=ExtResource("13_qouja")]
+[node name="Piana" parent="." unique_id=2115514050 instance=ExtResource("13_bt5mj")]
+
+[node name="Rekin" parent="." unique_id=840497621 instance=ExtResource("13_qouja")]
 
 [node name="Table" type="Sprite2D" parent="." unique_id=689543537]
 position = Vector2(-16, 131)
