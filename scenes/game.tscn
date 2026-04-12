@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6x8sdyenyoqw" path="res://scenes/bar.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://fsqt2cx2cpce" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://2b1fdhw3q7mu" path="res://assets/images/tlo_.png" id="2_p57ef"]
-[ext_resource type="Texture2D" uid="uid://but56cieqeh2q" path="res://assets/images/Table.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://6o1egfo4ydih" path="res://assets/images/Table.png" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://6cb3wsgc3pv1" path="res://scenes/rozbitek.tscn" id="4_37s47"]
 [ext_resource type="Texture2D" uid="uid://dux7fupca1a8d" path="res://assets/images/Kula.png" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://4jidcuic8dbp" path="res://scenes/doradca.tscn" id="5_bt5mj"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bn4j1dns5oiyt" path="res://assets/images/tlo_wizja.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://34dcmt38hdwf" path="res://scenes/ryba.tscn" id="8_bhx41"]
 [ext_resource type="Script" uid="uid://br86jgl4a2m2t" path="res://scripts/vision.gd" id="8_gee14"]
-[ext_resource type="PackedScene" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://b3id4kj56k6j1" path="res://scenes/dialogs.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://blhpvgcq5pdgl" path="res://scenes/ranny.tscn" id="9_qnb83"]
 [ext_resource type="PackedScene" uid="uid://bqfnsqi0weugr" path="res://scenes/martwy.tscn" id="10_sww3w"]
 [ext_resource type="PackedScene" uid="uid://cccuom0kwioxm" path="res://scenes/dziewczynka.tscn" id="11_suyxu"]
@@ -117,6 +117,21 @@ offset_bottom = -144.99998
 rotation = -1.5707964
 scale = Vector2(1.6100309, 1.6100309)
 
+[node name="ikona" type="Sprite2D" parent="." unique_id=77648730]
+position = Vector2(432.00003, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("29_qouja")
+
+[node name="ikona2" type="Sprite2D" parent="." unique_id=1395260400]
+position = Vector2(483.00003, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("30_wljb1")
+
+[node name="ikona3" type="Sprite2D" parent="." unique_id=1269323223]
+position = Vector2(530, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("29_suyxu")
+
 [node name="Button" type="Button" parent="." unique_id=80474204]
 visible = false
 offset_left = -422.0
@@ -187,21 +202,6 @@ script = ExtResource("8_gee14")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Vision" unique_id=924194276]
 libraries/ = SubResource("AnimationLibrary_kvpfn")
-
-[node name="ikona" type="Sprite2D" parent="." unique_id=77648730]
-position = Vector2(432.00003, -130)
-scale = Vector2(0.23260328, 0.23260328)
-texture = ExtResource("29_qouja")
-
-[node name="ikona2" type="Sprite2D" parent="." unique_id=1395260400]
-position = Vector2(483.00003, -130)
-scale = Vector2(0.23260328, 0.23260328)
-texture = ExtResource("30_wljb1")
-
-[node name="ikona3" type="Sprite2D" parent="." unique_id=1269323223]
-position = Vector2(530, -130)
-scale = Vector2(0.23260328, 0.23260328)
-texture = ExtResource("29_suyxu")
 
 [node name="jumpscare" type="Sprite2D" parent="." unique_id=397729769]
 visible = false

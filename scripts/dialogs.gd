@@ -188,7 +188,9 @@ func story3_fin():
 			return
 		characters["nawigator"].hide_character()
 		characters["rozbitek"].show_character()
+		question_buble.hide()
 		await get_tree().create_timer(4).timeout
+		question_buble.show()
 		guest("Hey, I've heard something
 		about beautiful mermaid")
 		await pc("Yes, since she saw that
@@ -233,7 +235,9 @@ func story4_fin():
 	if !shark:
 		characters["rekin"].hide_character()
 		characters["ranny"].show_character()
+		question_buble.hide()
 		await get_tree().create_timer(4).timeout
+		question_buble.show()
 		guest("Oh, witch! Can I hide from
 		shark here?")
 		await pc("Fine")
@@ -248,8 +252,10 @@ func story4_fin():
 	else:
 		if navigator:
 			characters["rekin"].hide_character()
-			characters["nawigator"].show_character()
+			characters["ranny"].show_character()
+			question_buble.hide()
 			await get_tree().create_timer(4).timeout
+			question_buble.show()
 			guest(
 			"Haha, I made it! 
 			Unbelievable this shark
@@ -260,7 +266,9 @@ func story4_fin():
 		else:
 			characters["rekin"].hide_character()
 			characters["martwy"].show_character()
+			question_buble.hide()
 			await get_tree().create_timer(4).timeout
+			question_buble.show()
 			guest("…")
 	timer.start()
 
@@ -446,6 +454,9 @@ func story8():
 		if game.ppl*game.fauna<game.chaos:
 			end_game("chaos")
 		else:
+			characters["zolw"].show_character()
+			question_buble.hide()
+			await get_tree().create_timer(4).timeout
 			await pc("Uff, i won
 			Luckly he was not strong enought for me")
 			timer.start()
@@ -513,7 +524,7 @@ func story9():
 	await pc(
 		"You're in the right place"
 	)
-	ball.disabled = true
+	ball.disabled = false
 
 func story9_1():
 	guest(
