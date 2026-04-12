@@ -367,6 +367,7 @@ libraries/ = SubResource("AnimationLibrary_kvpfn")
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="Ball" to="." method="_on_ball_button_down"]
+[connection signal="mouse_entered" from="Ball" to="." method="_on_ball_mouse_entered"]
 [connection signal="button_down" from="Vision" to="Vision" method="_on_button_down"]
 [connection signal="timeout" from="Vision/Timer" to="Vision" method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Vision/AnimationPlayer" to="Dialogs" method="_on_animation_player_animation_finished"]

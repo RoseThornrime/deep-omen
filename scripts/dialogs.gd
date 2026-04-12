@@ -550,6 +550,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				story9_1()
 
 func _on_answer_button_down() -> void:
+	AudioManager.play_effect("click")
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
@@ -585,6 +586,7 @@ func _on_answer_button_down() -> void:
 			story9_fin()
 
 func _on_answer_2_button_down() -> void:
+	AudioManager.play_effect("click")
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
@@ -654,8 +656,7 @@ func _on_timer_timeout() -> void:
 		9:
 			ending()
 			
-		
-
+	
 
 func _on_button_button_down() -> void:
 	emit_signal("clicked")
