@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://34dcmt38hdwf"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_ja2hd"]
+[ext_resource type="Texture2D" uid="uid://dyl4n7x5rnocg" path="res://assets/images/karyna 1 1.png" id="2_vsvut"]
+[ext_resource type="Texture2D" uid="uid://cu3jkeg4elehb" path="res://assets/images/karyna 1 2.png" id="3_ufiqw"]
+[ext_resource type="Texture2D" uid="uid://dtgtjbf5d2o47" path="res://assets/images/karyna 1 3.png" id="4_hqj1h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxtfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vsvut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ufiqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hqj1h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Ryba" type="Node2D" unique_id=1796310397]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1_ja2hd")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1287250785]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_gxtfn")
+autoplay = "default"
+frame_progress = 0.18297566
+
+[node name="Timer" type="Timer" parent="." unique_id=1774244428]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2111375163]
+root_node = NodePath("../AnimatedSprite")
+libraries/ = SubResource("AnimationLibrary_kvpfn")

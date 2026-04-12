@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://cqo7pmbjsruo6"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_twbwe"]
+[ext_resource type="Texture2D" uid="uid://cxx5u64s8crta" path="res://assets/images/syrena ogon 1.png" id="2_nhkwt"]
+[ext_resource type="Texture2D" uid="uid://bhv1vo1eugiof" path="res://assets/images/syrena ogon 2.png" id="3_eo278"]
+[ext_resource type="Texture2D" uid="uid://dxtvx07fnevun" path="res://assets/images/syrena ogon 3.png" id="4_rrp5u"]
+[ext_resource type="Texture2D" uid="uid://bvh7w43i2jquh" path="res://assets/images/syrena ogon 4.png" id="5_g14yi"]
+[ext_resource type="Texture2D" uid="uid://s4aeblwkbh1a" path="res://assets/images/syrena 1 baza zedytowana.png" id="6_u43ae"]
+[ext_resource type="Texture2D" uid="uid://bqlumaloydp28" path="res://assets/images/syrena serca 1.png" id="7_cfipm"]
+[ext_resource type="Texture2D" uid="uid://cpv2oe2xge3ry" path="res://assets/images/syrena serca 2.png" id="8_w4dj3"]
+[ext_resource type="Texture2D" uid="uid://bc52sn8hwjcpo" path="res://assets/images/syrena serca 3.png" id="9_1vfvk"]
+[ext_resource type="Texture2D" uid="uid://c68c6w3d638c2" path="res://assets/images/syrena serca 4.png" id="10_4ckxd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2yb1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nhkwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eo278")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rrp5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g14yi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suyxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_cfipm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w4dj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1vfvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4ckxd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Syrena" type="Node2D" unique_id=1416740149]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_twbwe")
+
+[node name="Ogon" type="AnimatedSprite2D" parent="." unique_id=642699846]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1047.5, 295)
+rotation = -0.45204028
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_v2yb1")
+autoplay = "default"
+
+[node name="Ciało" type="Sprite2D" parent="." unique_id=1944940970]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_u43ae")
+
+[node name="Serca" type="AnimatedSprite2D" parent="." unique_id=772953727]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-304.99994, -507.4999)
+sprite_frames = SubResource("SpriteFrames_suyxu")
+autoplay = "default"
+frame_progress = 0.7717437
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." unique_id=1913623121]
+root_node = NodePath("../Serca")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=670824222]
+root_node = NodePath("../Ogon")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1608524894]
+root_node = NodePath("../Ciało")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1943212848]

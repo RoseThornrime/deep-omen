@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://4jidcuic8dbp"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_niepq"]
+[ext_resource type="Texture2D" uid="uid://bql2l0qoiqdiv" path="res://assets/images/doradca 1.png" id="2_1ws2u"]
+[ext_resource type="Texture2D" uid="uid://c125sutoul56d" path="res://assets/images/doradca ogon 1.png" id="3_dsi8v"]
+[ext_resource type="Texture2D" uid="uid://ubw6jcwj2ac6" path="res://assets/images/doradca ogon 2.png" id="4_1m1qs"]
+[ext_resource type="Texture2D" uid="uid://c0y7q3e16klxr" path="res://assets/images/doradca ogon 3.png" id="5_d5mud"]
+[ext_resource type="Texture2D" uid="uid://c8gmioogvd8fr" path="res://assets/images/doradca ogon 4.png" id="6_8pmpw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sww3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dsi8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1m1qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d5mud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8pmpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Doradca" type="Node2D" unique_id=67738828]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.16000001, 0.16000001)
+script = ExtResource("1_niepq")
+
+[node name="Ciało" type="Sprite2D" parent="." unique_id=1468813813]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1ws2u")
+
+[node name="Ogon" type="AnimatedSprite2D" parent="." unique_id=1693301456]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-1449.9999, 456.24994)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sww3w")
+autoplay = "default"
+frame_progress = 0.7495865
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=171387266]
+root_node = NodePath("../Ogon")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=885656966]
+root_node = NodePath("../Ciało")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1261752625]

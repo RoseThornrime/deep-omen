@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bqfnsqi0weugr"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_51n71"]
+[ext_resource type="Texture2D" uid="uid://bhgcpnv1y3eg2" path="res://assets/images/ranny marwy 1.png" id="2_u6163"]
+[ext_resource type="Texture2D" uid="uid://djbj8ou0x72rp" path="res://assets/images/ranny martwy 3.png" id="3_oqr7b"]
+[ext_resource type="Texture2D" uid="uid://c11i4lctqbpn2" path="res://assets/images/ranny martwy 2.png" id="4_uaeob"]
+[ext_resource type="Texture2D" uid="uid://dp8xu6jtrldhr" path="res://assets/images/ranny martwy 4.png" id="5_mp118"]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Martwy" type="Node2D" unique_id=579513290]
+z_index = 1
+script = ExtResource("1_51n71")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1642090503]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(246.99998, 108.99999)
+rotation = 0.43109632
+scale = Vector2(0.40000004, 0.40000004)
+texture = ExtResource("2_u6163")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1025651915]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-111.000015, 206)
+rotation = -0.53232545
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_oqr7b")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=13554690]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(141.99998, 170.99998)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_uaeob")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=824311665]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-304.99997, 118.000015)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_mp118")
+
+[node name="Timer" type="Timer" parent="." unique_id=1569196756]
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." unique_id=345738599]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=474101435]
+root_node = NodePath("../Sprite2D2")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="." unique_id=1660361566]
+root_node = NodePath("../Sprite2D3")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1009704116]
+root_node = NodePath("../Sprite2D4")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
