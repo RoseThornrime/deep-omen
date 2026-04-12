@@ -8,6 +8,8 @@ extends Sprite2D
 @onready var a2_label: Label = $Answer2/Label
 @onready var ball: TextureButton = $"../Ball"
 @onready var timer: Timer = $Timer
+@onready var pc_buble: TextureButton = $Button
+@onready var pc_label: Label = $Label
 
 @onready var rozbitek = $"../Rozbitek"
 
@@ -22,13 +24,20 @@ var guide = false
 var disappearing = false
 var fish = false
 
+signal clicked
 
 func guest(tekst):
 	q_label.text=tekst
 	question_buble.show()
+	await get_tree().create_timer(0.3).timeout
 
 func pc(tekst):
-	pass
+	pc_label.text = tekst
+	pc_buble.show()
+	pc_label.show()
+	await self.clicked
+	pc_buble.hide()
+	pc_label.hide()
 	
 func a1(tekst):
 	a1_label.text=tekst
@@ -111,9 +120,9 @@ func story3_fin():
 		timer.start()
 		return
 	guest("hej, słyszałem coś o pięknej syrenie")
-	pc("tak, odkąd zobaczyła tego nawigatora nie może się odczepić")
+	await pc("tak, odkąd zobaczyła tego nawigatora nie może się odczepić")
 	guest("myślisz... że mogę ją poznać?")
-	pc("nie rozumiesz że jest psychiczna?")
+	await pc("nie rozumiesz że jest psychiczna?")
 	guest("i can fix her")
 	timer.start()
 
@@ -140,18 +149,18 @@ func story4_fin():
 		)
 	if shark:
 		guest("och wiedźmo, czy mogę ukryć się tu przed rekinem?")
-		pc("dobrze")
+		await pc("dobrze")
 		guest("wiesz... przed chwila zdawało mi się że umieram, a teraz jestem bezpieczny! dzięki ci o wielki żółwiu")
-		pc("żółwiu?")
+		await pc("żółwiu?")
 		guest("potężna kreatura hehe, uratowała mnie")
-		pc("nie sądzę")
+		await pc("nie sądzę")
 	else:
 		guest("…")
 	timer.start()
 
 func story5():
 	guest("ah tyle tej piany morskiej, nienawidzę jej. cały czas wchodzi mi w skrzela")
-	pc("co ja mam z tym zrobić?")
+	await pc("co ja mam z tym zrobić?")
 	guest("nie wiem, jesteś wiedźmą wyczaruj coś")
 	ball.disabled=false
 
@@ -164,11 +173,11 @@ func story5_1():
 func story5_fin():
 	if fish:
 		guest("czyli co? co jest powodem tej sytuacji?")
-		pc("tryton oczywiście")
+		await pc("tryton oczywiście")
 		guest("wiedziałam")
 	else:
 		guest("ale kiedy?")
-		pc("niezbadane są wyniki przyszłości")
+		await pc("niezbadane są wyniki przyszłości")
 		guest("beznadziejna ta cała magia")
 	timer.start()
 
@@ -195,40 +204,41 @@ func story6_fin():
 		guest(
 			"to znaczy?"
 		)
-		pc(
+		await pc(
 			"widzisz... pewna ryba jest zaczarowana, może odwrócić znikanie twojej piany"
 		)
 		guest(
 			"jak? gdzie?"
 		)
-		pc(
+		await pc(
 			"wyczuwam że... eeee"
 		)
 		guest(
 			"nie ważne, muszę ją jak najszybciej znaleźć"
 		)
-		return
-	guest(
-		"jak to! NIE TO NIEMOŻLIWE"
-	)
-	pc(
-		"sama widzisz że powoli znikasz"
-	)
-	guest(
-		"ah tak"
-	)
+	else:
+		guest(
+			"jak to! NIE TO NIEMOŻLIWE"
+		)
+		await pc(
+			"sama widzisz że powoli znikasz"
+		)
+		guest(
+			"ah tak"
+		)
+	timer.start()
 
 func story7():
 	guest(
 		"mój żółw, jest moim najlepszym przyjacielem. chciałabym wiedzieć czy będziemy już ze sobą na zawsze!"
 	)
-	pc(
+	await pc(
 		"co?"
 	)
 	guest(
 		"coś nie tak wiedźmo?"
 	)
-	pc(
+	await pc(
 		"mogę się przyjrzeć twojemu żółwiowi?"
 	)
 	guest(
@@ -254,34 +264,34 @@ func story7_fin():
 				"<żółw> dobry wybór śmiertelniku
 				<girl> tak się cieszę! zostaniemy ze sobą na zawsze, tutaj na dnie morza"
 			)
-		return
-	pc("ten żółw, jest... on")
-	guest("he?")
-	pc("ON JEST JAKIMŚ STRASZNYM BYTEM! powinnaś go puścić")
+	else:
+		await pc("ten żółw, jest... on")
+		guest("he?")
+		await pc("ON JEST JAKIMŚ STRASZNYM BYTEM! powinnaś go puścić")
+	timer.start()
 		
 func story8():
 	if not turtle:
 		guest(
 			"nawet nie wiesz z kim masz do czynienia!",	
 		)
-		pc(
+		await pc(
 			"oj wiem bardzo dobrze"
 		)
 		guest(
 			"spróbuj walczyć ze mną, no dalej popatrz w swoją kule i zobacz przyszłość"
 		)
-		ball.disabled = true
-		return
-	guest(
-		"dziękuje ze mnie nie wydałaś śmiertelniczko"
-	)
-	pc(
-		"nie ma za co..."
-	)
-	guest(
-		"wyczuwam że chcesz mocy! razem możemy wprowadzić chaos w całym królestwie"
-	)
-	ball.disabled = true
+	else:
+		guest(
+			"dziękuje ze mnie nie wydałaś śmiertelniczko"
+		)
+		await pc(
+			"nie ma za co..."
+		)
+		guest(
+			"wyczuwam że chcesz mocy! razem możemy wprowadzić chaos w całym królestwie"
+		)
+	ball.disabled = false
 	
 func story8_1():
 	guest("czy przyłączysz się do mnie?")
@@ -293,26 +303,26 @@ func story8_fin():
 		guest(
 			"ah tak, wiedz wybierasz przegraną. Myślisz że kto napisał list o utracie poparcia u trytona?"
 		)
-		pc(
+		await pc(
 			"nie ważne, przekazałeś mi to za darmo"
 		)
 		guest(
 			"jeszcze zobaczysz "
 		)
-		return
+	timer.start()
 	
 	
 func story9():
 	guest(
 		"witaj wiedźmo, przybyłem aby zapytać się o porade "
 	)
-	pc(
+	await pc(
 		"poradę?"
 	)
 	guest(
 		"usłyszałem że przepowiadasz przyszłość, patrze na nastroje, nie każdy wspiera trytona. chciałbym wiedzieć jaka jest ma przyszłość u jego boku"
 	)
-	pc(
+	await pc(
 		"dobrze trafiłeś"
 	)
 	ball.disabled = true
@@ -333,26 +343,26 @@ func story9_fin():
 		guest(
 			"tak?"
 		)
-		pc(
+		await pc(
 			"ale tylko u mojego boku"
 		)
 		guest(
 			"to znaczy?"
 		)
-		pc(
+		await pc(
 			"jeśli pomożesz mi zdobyć stanowisko władcy mórz wszystko się ułoży"
 		)
-		return
-	guest(
-		"he?"
-	)
-	pc(
-		"niedługo stracisz prace, nie ma rady "
-	)
-	guest(
-		"wszystko jest bez sensu, odchodzę"
-	)
-	
+	else:
+		guest(
+			"he?"
+		)
+		await pc(
+			"niedługo stracisz prace, nie ma rady "
+		)
+		guest(
+			"wszystko jest bez sensu, odchodzę"
+		)
+	timer.start()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -368,6 +378,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				story3_1()
 			4:
 				story4_1()
+			5:
+				story5_1()
 			6:
 				story6_1()
 			7:
@@ -376,8 +388,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 				story8_1()
 			9:
 				story9_1()
-			5:
-				story5_1()
 
 func _on_answer_button_down() -> void:
 	answer_buble.hide()
@@ -391,18 +401,18 @@ func _on_answer_button_down() -> void:
 			timer.start()
 		3:
 			story3_fin()
+		4:
+			story4_fin()
+		5:
+			story5_fin()
 		6:
 			story6_fin()
 		7: 
 			story7_fin()
 		8:
-			timer.start()
+			story8_fin()
 		9:
 			story9_fin()
-		4:
-			story4_fin()
-		5:
-			story5_fin()
 
 func _on_answer_2_button_down() -> void:
 	answer_buble.hide()
@@ -417,6 +427,10 @@ func _on_answer_2_button_down() -> void:
 			timer.start()
 		3:
 			story3_fin()
+		4:
+			story4_fin()
+		5:
+			story5_fin()
 		6:
 			story6_fin()
 			disappearing = true
@@ -426,11 +440,6 @@ func _on_answer_2_button_down() -> void:
 		8:
 			rule_alone = true
 			timer.start()
-			
-		4:
-			story4_fin()
-		5:
-			story5_fin()
 
 
 func _on_timer_timeout() -> void:
@@ -440,15 +449,27 @@ func _on_timer_timeout() -> void:
 		1:
 			story1()
 		2:
-			story2()
+			if syrena:
+				story2()
+			else:
+				scene+=1
+				story3()
 		3:
-			story3()
-		6:
-			story7()
+			scene+=1
+			story4()
 		4:
 			story4()
-		9:
-			story9()
-			
 		5:
 			story5()
+		6:
+			story6()
+		7:
+			story7()
+		8:
+			story8()
+			
+		
+
+
+func _on_button_button_down() -> void:
+	emit_signal("clicked")
