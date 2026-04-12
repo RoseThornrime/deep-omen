@@ -248,12 +248,14 @@ libraries/ = SubResource("AnimationLibrary_kvpfn")
 
 [node name="Nawigator" type="Node2D" parent="." unique_id=512760412]
 scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("5_sww3w")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Nawigator" unique_id=2085400239]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_gxtfn")
+autoplay = "default"
+frame_progress = 0.28402394
 
 [node name="Timer" type="Timer" parent="Nawigator" unique_id=1140629932]
 
