@@ -451,7 +451,7 @@ func story8():
 			into your cristal ball
 			and see the future"
 		)
-		if game.ppl*game.fauna<game.chaos:
+		if game.ppl*game.fauna<game.chaos**2:
 			end_game("chaos")
 		else:
 			characters["zolw"].hide_character()
@@ -459,6 +459,7 @@ func story8():
 			await get_tree().create_timer(4).timeout
 			await pc("Uff, i won
 			Luckly he was not strong enought for me")
+			game.vision_nr+=1
 			timer.start()
 			return
 	else:
@@ -498,7 +499,7 @@ func story8_fin():
 			"Oh, you will regret
 			it, just wait."
 		)
-		if game.ppl*game.fauna<game.chaos:
+		if game.ppl*game.fauna<game.chaos**2:
 			end_game("chaos")
 	timer.start()
 	
