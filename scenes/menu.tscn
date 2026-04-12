@@ -9,6 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://ddsw31k55jk0" path="res://assets/images/menu_guzik.png" id="7_mj5lg"]
 [ext_resource type="Texture2D" uid="uid://smcxfu1en8uc" path="res://assets/images/menu_guzik_hover.png" id="8_ufwb2"]
 [ext_resource type="FontFile" uid="uid://dv3fl0pl7akmj" path="res://assets/fonts/Aquees-LV4aE.ttf" id="9_6cdou"]
+[ext_resource type="Texture2D" uid="uid://bjcpx47bxg6k4" path="res://assets/images/Menu_babel1.png" id="10_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://dhgtjyd5c58dd" path="res://assets/images/Menu_babel2.png" id="11_ufwb2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cdou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_mj5lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ufwb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Menu" type="Sprite2D" unique_id=993945970]
 scale = Vector2(0.596, 0.596)
@@ -41,8 +57,8 @@ theme_override_font_sizes/font_size = 64
 text = "Start"
 
 [node name="OptionsButton" type="TextureButton" parent="." unique_id=923759100]
-offset_left = -400.00003
-offset_right = -99.00003
+offset_left = -359.0604
+offset_right = -58.060394
 offset_bottom = 364.0
 texture_normal = ExtResource("7_mj5lg")
 texture_pressed = ExtResource("8_ufwb2")
@@ -66,7 +82,8 @@ theme_override_font_sizes/font_size = 64
 text = "Options"
 
 [node name="CreditsButton" type="TextureButton" parent="." unique_id=1247029664]
-offset_right = 301.0
+offset_left = 75.50336
+offset_right = 376.50336
 offset_bottom = 364.0
 texture_normal = ExtResource("7_mj5lg")
 texture_pressed = ExtResource("8_ufwb2")
@@ -90,8 +107,8 @@ theme_override_font_sizes/font_size = 64
 text = "Credits"
 
 [node name="TutorialButton" type="TextureButton" parent="." unique_id=941681520]
-offset_left = 400.00003
-offset_right = 701.0
+offset_left = 503.35568
+offset_right = 804.3557
 offset_bottom = 364.0
 texture_normal = ExtResource("7_mj5lg")
 texture_pressed = ExtResource("8_ufwb2")
@@ -126,6 +143,11 @@ visible = false
 
 [node name="Credits" parent="." unique_id=92045051 instance=ExtResource("3_4ytvr")]
 visible = false
+
+[node name="Babelki" type="AnimatedSprite2D" parent="." unique_id=377132210]
+sprite_frames = SubResource("SpriteFrames_6cdou")
+autoplay = "default"
+frame_progress = 0.807239
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_pressed"]
 [connection signal="hidden" from="OptionsButton" to="." method="_on_options_button_hidden"]
