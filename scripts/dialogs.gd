@@ -11,7 +11,13 @@ extends Sprite2D
 @onready var pc_buble: TextureButton = $Button
 @onready var pc_label: Label = $Label
 
-@onready var rozbitek = $"../Rozbitek"
+@onready var characters = {
+	"rozbitek": $"../Rozbitek",
+	"syrena": $"../Syrena",
+	"ranny": $"../Ranny",
+	"martwy": $"../Martwy",
+	"nawigator": $"../Nawigator"
+}
 
 var scene = 0
 var marynarz = false
@@ -48,7 +54,7 @@ func a2(tekst):
 	answer2_buble.show()
 
 func _ready() -> void:
-	rozbitek.show()
+	characters["rozbitek"].show_character()
 	guest(
 	"wiedźmo morska! jestem skończony.
 	nie wiem jaka mnie przyszłość czeka.
@@ -71,9 +77,10 @@ func story0_fin():
 	guest("dziękuje ci za pomoc,
 	nie mam dużo ale proszę")
 	timer.start()
-	rozbitek.hide()
 
 func story1():
+	characters["rozbitek"].hide_character()
+	characters["syrena"].show_character()
 	guest(
 	"o hejjjjj, widziałam że jakiś statek
 	zatonął, ludzie są tacy piękni.
@@ -92,6 +99,8 @@ func story1_1():
 	nigdy nie mają przyszłości")
 	
 func story2():
+	characters["syrena"].hide_character()
+	characters["nawigator"].show_character()
 	guest(
 	"prześladuje mnie syrena,
 	ona ciągle za mną pływa")
@@ -107,6 +116,8 @@ func story2_1():
 	z tym zrobić, ona jest niebezpieczna")
 	
 func story3():
+	characters["syrena"].hide_character()
+	characters["nawigator"].show_character()
 	guest("prześladuje mnie syrena, ona ciągle za mną pływa. nie wiem co robić")
 	ball.disabled=false
 
