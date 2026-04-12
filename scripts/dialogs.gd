@@ -389,6 +389,7 @@ func story7():
 		you, DO-NOT-TOUCH."
 	)
 	$"../jumpscare".show()
+	AudioManager.play_effect("scream")
 	await get_tree().create_timer(0.3).timeout
 	$"../jumpscare".hide()
 	

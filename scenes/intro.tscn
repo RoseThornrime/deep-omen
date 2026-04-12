@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://qo4td88b3dxf"]
+
+[ext_resource type="Script" uid="uid://037jh2ykbgrg" path="res://scripts/intro.gd" id="1_ioskq"]
+
+[node name="Node2d" type="Node2D" unique_id=230895997]
+script = ExtResource("1_ioskq")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=2091123330]
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 1345.0
+offset_bottom = 755.0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
