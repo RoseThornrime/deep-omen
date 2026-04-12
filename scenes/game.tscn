@@ -123,31 +123,31 @@ position = Vector2(0, 87.99999)
 scale = Vector2(0.5, 0.5)
 
 [node name="Rekin" parent="." unique_id=840497621 instance=ExtResource("13_qouja")]
-position = Vector2(203, 0)
+position = Vector2(202, 7.9999995)
 
 [node name="Bar" parent="." unique_id=585504706 instance=ExtResource("1_uwrxv")]
-offset_left = 410.0
-offset_top = -170.0
-offset_right = 490.0
-offset_bottom = -143.0
+offset_left = 400.0
+offset_top = -127.0
+offset_right = 480.0
+offset_bottom = -100.0
 rotation = -1.5707964
-scale = Vector2(1.6100309, 1.6100309)
+scale = Vector2(2.3, 2.3)
 
 [node name="Bar2" parent="." unique_id=1728063209 instance=ExtResource("1_uwrxv")]
-offset_left = 460.0
-offset_top = -170.0
-offset_right = 540.0
-offset_bottom = -143.0
+offset_left = 450.0
+offset_top = -127.0
+offset_right = 530.0
+offset_bottom = -100.0
 rotation = -1.5707964
-scale = Vector2(1.6100309, 1.6100309)
+scale = Vector2(2.3, 2.3)
 
 [node name="Bar3" parent="." unique_id=925682859 instance=ExtResource("1_uwrxv")]
-offset_left = 510.0
-offset_top = -170.0
-offset_right = 590.0
-offset_bottom = -143.0
+offset_left = 500.0
+offset_top = -127.0
+offset_right = 580.0
+offset_bottom = -100.0
 rotation = -1.5707964
-scale = Vector2(1.6100309, 1.6100309)
+scale = Vector2(2.3, 2.3)
 
 [node name="Bar4" parent="." unique_id=1358661932 instance=ExtResource("1_uwrxv")]
 visible = false
@@ -156,20 +156,20 @@ offset_top = -171.99998
 offset_right = 404.0
 offset_bottom = -144.99998
 rotation = -1.5707964
-scale = Vector2(1.6100309, 1.6100309)
+scale = Vector2(2.3, 2.3)
 
 [node name="ikona" type="Sprite2D" parent="." unique_id=77648730]
-position = Vector2(432.00003, -130)
+position = Vector2(428.491, -88.691986)
 scale = Vector2(0.23260328, 0.23260328)
 texture = ExtResource("29_qouja")
 
 [node name="ikona2" type="Sprite2D" parent="." unique_id=1395260400]
-position = Vector2(483.00003, -130)
+position = Vector2(479.491, -88.691986)
 scale = Vector2(0.23260328, 0.23260328)
 texture = ExtResource("30_wljb1")
 
 [node name="ikona3" type="Sprite2D" parent="." unique_id=1269323223]
-position = Vector2(530, -130)
+position = Vector2(526.49097, -88.691986)
 scale = Vector2(0.23260328, 0.23260328)
 texture = ExtResource("29_suyxu")
 
