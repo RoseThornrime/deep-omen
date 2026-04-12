@@ -35,7 +35,7 @@ func _ready():
 
 
 func _on_texture_button_pressed() -> void:
-	AudioManager.play_effect("click")
+	AudioManager.play_effect("drop")
 	if index < len(images) -1:
 		index += 1
 		button.texture_normal = images[index]

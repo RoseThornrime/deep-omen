@@ -37,3 +37,10 @@ func _on_ball_button_down() -> void:
 	vision_nr+=1
 	if vision_nr==4:
 		vision_nr=0
+
+
+
+func _on_ball_mouse_entered() -> void:
+	if $Ball.disabled:
+		return
+	AudioManager.play_effect("crystal")
