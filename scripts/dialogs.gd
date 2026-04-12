@@ -190,10 +190,10 @@ func story3_fin():
 		await pc("Don't you understand she's
 		a lunatic?")
 		guest("I can fix her!")
-		timer.start()
 		game.update_ppl(20)
 	else:
 		game.update_ppl(-20)
+	timer.start()
 
 func story4():
 	guest(
@@ -398,13 +398,13 @@ func story8():
 			into your cristal ball
 			and see the future"
 		)
-		#BASED ON SUPPORT:
-#
-		#low suport:
-		#bad ending - you lose to turtle
-#
-		#high suport:
-		#good ending - witch sits on throne without turtle
+		if game.ppl*game.fauna<game.chaos:
+			end_game("bad")
+		else:
+			await pc("Uff, i won
+			Luckly he was not strong enought for me")
+			timer.start()
+			return
 	else:
 		guest(
 			"Thank you for keeping
@@ -442,8 +442,8 @@ func story8_fin():
 			"Oh, you will regret
 			it, just wait."
 		)
-	else:
-		pass #ending
+		if game.ppl*game.fauna<game.chaos:
+			end_game("bad")
 	timer.start()
 	
 	
@@ -515,14 +515,14 @@ func story9_fin():
 func ending():
 	if rule_alone:
 		if game.chaos>80:
-			pass
+			end_game("chaos")
 		else:
-			pass
+			end_game("good")
 	else:
 		if game.chaos>80:
-			pass
+			end_game("badturtle")
 		else:
-			pass
+			end_game("goodturtle")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
