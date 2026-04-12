@@ -165,10 +165,13 @@ scale = Vector2(8.7439165, 8.7439165)
 [node name="Dziewczynka" parent="." unique_id=1650885854 instance=ExtResource("11_suyxu")]
 
 [node name="Zolw" parent="." unique_id=1409139520 instance=ExtResource("12_sgl2t")]
+position = Vector2(0, 56.999996)
 
 [node name="Piana" parent="." unique_id=2115514050 instance=ExtResource("13_bt5mj")]
+scale = Vector2(0.5, 0.5)
 
 [node name="Rekin" parent="." unique_id=840497621 instance=ExtResource("13_qouja")]
+position = Vector2(205, 0)
 
 [node name="Table" type="Sprite2D" parent="." unique_id=689543537]
 position = Vector2(-16, 131)
@@ -194,7 +197,7 @@ offset_left = -571.99994
 offset_top = -322.0
 offset_right = 1348.0
 offset_bottom = 758.0
-scale = Vector2(0.5953417, 0.5953417)
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("7_u5sy4")
 script = ExtResource("8_gee14")
 

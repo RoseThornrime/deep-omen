@@ -454,7 +454,7 @@ func story8():
 		if game.ppl*game.fauna<game.chaos:
 			end_game("chaos")
 		else:
-			characters["zolw"].show_character()
+			characters["zolw"].hide_character()
 			question_buble.hide()
 			await get_tree().create_timer(4).timeout
 			await pc("Uff, i won
@@ -610,6 +610,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_answer_button_down() -> void:
 	AudioManager.play_effect("click")
+	question_buble.hide()
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
@@ -647,6 +648,7 @@ func _on_answer_button_down() -> void:
 
 func _on_answer_2_button_down() -> void:
 	AudioManager.play_effect("click")
+	question_buble.hide()
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
