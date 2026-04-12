@@ -12,6 +12,7 @@ var textures = [
 	preload("res://assets/images/wizja_ryba.png"),
 	preload("res://assets/images/wizja_piana.png"),
 	preload("res://assets/images/wizja_zolw.png"),
+	preload("res://assets/images/wizja_zolw.png"),
 	preload("res://assets/images/wizja_zwolnienie.png"),
 ]
 

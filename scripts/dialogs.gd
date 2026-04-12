@@ -615,6 +615,7 @@ func _on_answer_button_down() -> void:
 			navigator=true
 		4:
 			game.update_fauna(20)
+			shark = true
 			story4_fin()
 		5:
 			game.update_fauna(20)
@@ -663,7 +664,7 @@ func _on_answer_2_button_down() -> void:
 			disappearing = true
 		7: 
 			turtle = true
-			game.ppl(10)
+			game.update_ppl(10)
 			story7_fin()
 		8:
 			rule_alone = true
@@ -701,6 +702,8 @@ func _on_timer_timeout() -> void:
 		8:
 			story8()
 		9:
+			story9()
+		10:
 			ending()
 			
 	
