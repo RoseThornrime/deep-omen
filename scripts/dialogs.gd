@@ -503,6 +503,9 @@ func story8_fin():
 		)
 		if game.ppl*game.fauna<game.chaos**2:
 			end_game("chaos")
+		else:
+			await pc("Uff, i won
+			Luckly he was not strong enought for me")
 	timer.start()
 	
 	
