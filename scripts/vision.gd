@@ -22,6 +22,7 @@ func _ready() -> void:
 func show_vision(n):
 	texture_normal=textures[n]
 	show()
+	AudioManager.play_effect("vision")
 	animation_player.play("show_viz")
 	timer.start()
 

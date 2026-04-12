@@ -123,7 +123,6 @@ visible = false
 
 [node name="Tutorial" parent="." unique_id=1101348455 instance=ExtResource("4_g3eks")]
 visible = false
-position = Vector2(-1736.8134, 165.98549)
 
 [node name="Credits" parent="." unique_id=92045051 instance=ExtResource("3_4ytvr")]
 visible = false
@@ -134,4 +133,5 @@ visible = false
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_pressed"]
 [connection signal="hidden" from="Options" to="." method="_on_options_hidden"]
+[connection signal="hidden" from="Tutorial" to="." method="_on_tutorial_hidden"]
 [connection signal="hidden" from="Credits" to="." method="_on_credits_hidden"]

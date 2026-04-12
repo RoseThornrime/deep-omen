@@ -53,6 +53,8 @@ func _on_tutorial_pressed() -> void:
 func _on_options_hidden() -> void:
 	show_buttons()
 
-
 func _on_credits_hidden() -> void:
+	show_buttons()
+
+func _on_tutorial_hidden() -> void:
 	show_buttons()

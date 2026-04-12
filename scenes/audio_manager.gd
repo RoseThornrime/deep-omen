@@ -16,7 +16,8 @@ extends Node
 @onready var effects = {
 	"click": "res://assets/audio/sfx/Plop.ogg",
 	"drop": "res://assets/audio/sfx/Drop.mp3",
-	"crystal": "res://assets/audio/sfx/Crystal.mp3"
+	"crystal": "res://assets/audio/sfx/Crystal.mp3",
+	"vision": "res://assets/audio/sfx/Vision.mp3"
 }
 
 var effect_players = {}
