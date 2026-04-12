@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwr4u7tvvnxxj"]
 
-[ext_resource type="Script" path="res://scripts/ending.gd" id="1_p1psx"]
+[ext_resource type="Script" uid="uid://bovinjr4wvb5q" path="res://scripts/ending.gd" id="1_p1psx"]
 [ext_resource type="Texture2D" uid="uid://dk8fqhsgd7otp" path="res://assets/images/Zakonczeniehappy.png" id="2_p1psx"]
 [ext_resource type="Texture2D" uid="uid://ddsw31k55jk0" path="res://assets/images/menu_guzik.png" id="3_mtf7x"]
 [ext_resource type="Texture2D" uid="uid://smcxfu1en8uc" path="res://assets/images/menu_guzik_hover.png" id="4_4oenq"]
