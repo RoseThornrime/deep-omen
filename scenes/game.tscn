@@ -26,6 +26,9 @@
 [ext_resource type="Texture2D" uid="uid://djbj8ou0x72rp" path="res://assets/images/ranny martwy 3.png" id="19_wljb1"]
 [ext_resource type="Texture2D" uid="uid://c11i4lctqbpn2" path="res://assets/images/ranny martwy 2.png" id="20_v2yb1"]
 [ext_resource type="Texture2D" uid="uid://dp8xu6jtrldhr" path="res://assets/images/ranny martwy 4.png" id="21_js0lu"]
+[ext_resource type="Texture2D" uid="uid://d0tsntgx2j6nr" path="res://assets/images/Ikonafauna.png" id="29_qouja"]
+[ext_resource type="Texture2D" uid="uid://b8ra0j41flban" path="res://assets/images/Ikonachaos.png" id="29_suyxu"]
+[ext_resource type="Texture2D" uid="uid://ovapg52072wn" path="res://assets/images/Ikonaczlowiek.png" id="30_wljb1"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -374,7 +377,20 @@ script = ExtResource("8_gee14")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Vision" unique_id=924194276]
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=77648730]
+[node name="ikona" type="Sprite2D" parent="." unique_id=77648730]
+position = Vector2(432.00003, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("29_qouja")
+
+[node name="ikona2" type="Sprite2D" parent="." unique_id=1395260400]
+position = Vector2(483.00003, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("30_wljb1")
+
+[node name="ikona3" type="Sprite2D" parent="." unique_id=1269323223]
+position = Vector2(530, -130)
+scale = Vector2(0.23260328, 0.23260328)
+texture = ExtResource("29_suyxu")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
