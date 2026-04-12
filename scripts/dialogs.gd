@@ -55,6 +55,7 @@ func a2(tekst):
 
 func _ready() -> void:
 	characters["rozbitek"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 	"Sea Witch! I'm done for.
 	I don't know what my fate will
@@ -84,6 +85,7 @@ func story0_fin():
 func story1():
 	characters["rozbitek"].hide_character()
 	characters["syrena"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 	"Oh hiii, I saw a ship sinking.
 	Humans are so beautiful. I'd
@@ -105,6 +107,7 @@ func story1_1():
 func story2():
 	characters["syrena"].hide_character()
 	characters["nawigator"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 	"I'm being stalked by a mermaid,
 	she folows me everywhere!")
@@ -135,7 +138,8 @@ func story2_fin():
 func story3():
 	characters["syrena"].hide_character()
 	characters["nawigator"].show_character()
-  guest("I'm being stalked by a mermaid,
+	await get_tree().create_timer(4).timeout
+	guest("I'm being stalked by a mermaid,
 	she folows me everywhere! What
 	should I do?")
 	ball.disabled=false
