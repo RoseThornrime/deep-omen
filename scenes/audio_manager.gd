@@ -9,7 +9,8 @@ extends Node
 	"ball": "res://assets/audio/ost/mystery.ogg",
 	"game": "res://assets/audio/ost/witch.mp3",
 	"loss": "res://assets/audio/ost/loss.ogg",
-	"chaos": "res://assets/audio/ost/apocalyptic.mp3"
+	"chaos": "res://assets/audio/ost/apocalyptic.mp3",
+	"story": "res://assets/audio/ost/story.mp3"
 }
 
 @onready var effects = {
