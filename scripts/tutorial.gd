@@ -20,6 +20,12 @@ func _on_return_button_pressed() -> void:
 		page3.show()
 		label.text = "Return"
 	else:
+		pages = 0
 		hide()
+		return
 	pages += 1
-	print(pages)
+
+
+func _on_hidden() -> void:
+	label.text = "Next"
+	pages = 0
