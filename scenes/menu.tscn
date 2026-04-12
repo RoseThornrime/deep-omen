@@ -147,7 +147,7 @@ visible = false
 [node name="Babelki" type="AnimatedSprite2D" parent="." unique_id=377132210]
 sprite_frames = SubResource("SpriteFrames_6cdou")
 autoplay = "default"
-frame_progress = 0.807239
+frame_progress = 0.96159494
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_pressed"]
 [connection signal="hidden" from="OptionsButton" to="." method="_on_options_button_hidden"]
