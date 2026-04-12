@@ -1,5 +1,6 @@
 extends Sprite2D
 
+@onready var game: Node2D = $".."
 @onready var question_buble: Sprite2D = $Question
 @onready var q_label: Label = $Question/Label
 @onready var answer_buble: TextureButton = $Answer
@@ -84,13 +85,13 @@ func story0_1():
 	guest(
 	"Am I going to be save
 	on Surface?")
-	a1(
+	a2(
 	"No, you're going to drawn
 	before you reach the surface.
 	You should stay at the bottom
 	of the sea and help its
 	residents.")
-	a2("Yes, you will find a raft
+	a1("Yes, you will find a raft
 	above surface")
 
 func story0_fin():
@@ -142,14 +143,16 @@ func story2_1():
 	possible, she's dangerous.")
 	
 func story2_fin():
-	if navigator:
+	if !marynarz:
 		guest("Is that so? Phew, thank
 		you, I feel relieved.")
+		game.update_chaos(10)
 	else:
 		guest("Just as I thought… This
 		whole underwater fauna
 		is seriously coo-coo. It's
 		time to take care of this.")
+		game.update_ppl(10)
 	timer.start()
 	
 func story3():
@@ -172,20 +175,25 @@ func story3_1():
 	better.")
 
 func story3_fin():
-	if !marynarz:
+	if marynarz:
+		if navigator:
+			timer.start()
+			game.update_ppl(10)
+			return
+		guest("Hey, I've heard something
+		about beautiful mermaid")
+		await pc("Yes, since she saw that
+		navigator she doesn't want
+		to let go.")
+		guest("Do you think… I could
+		meet her?")
+		await pc("Don't you understand she's
+		a lunatic?")
+		guest("I can fix her!")
 		timer.start()
-		return
-	guest("Hey, I've heard something
-	about beautiful mermaid")
-	await pc("Yes, since she saw that
-	navigator she doesn't want
-	to let go.")
-	guest("Do you think… I could
-	meet her?")
-	await pc("Don't you understand she's
-	a lunatic?")
-	guest("I can fix her!")
-	timer.start()
+		game.update_ppl(20)
+	else:
+		game.update_ppl(-20)
 
 func story4():
 	guest(
@@ -503,6 +511,18 @@ func story9_fin():
 			I'm leaving!"
 		)
 	timer.start()
+	
+func ending():
+	if rule_alone:
+		if game.chaos>80:
+			pass
+		else:
+			pass
+	else:
+		if game.chaos>80:
+			pass
+		else:
+			pass
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -534,24 +554,34 @@ func _on_answer_button_down() -> void:
 	answer2_buble.hide()
 	match scene:
 		0:
+			game.update_ppl(20)
 			story0_fin()
 		1:
 			timer.start()
+			game.update_fauna(-30)
 		2:
 			story2_fin()
+			navigator=true
 		3:
 			story3_fin()
+			navigator=true
 		4:
+			game.update_fauna(20)
 			story4_fin()
 		5:
+			game.update_fauna(20)
 			story5_fin()
 		6:
+			game.update_fauna(-20)
 			story6_fin()
 		7: 
+			game.update_ppl(-10)
+			game.update_chaos(10)
 			story7_fin()
 		8:
 			story8_fin()
 		9:
+			game.update_ppl(15)
 			story9_fin()
 
 func _on_answer_2_button_down() -> void:
@@ -559,31 +589,43 @@ func _on_answer_2_button_down() -> void:
 	answer2_buble.hide()
 	match scene:
 		0:
+			game.update_fauna(20)
+			marynarz=true
 			story0_fin()
 		1:
 			timer.start()
 			syrena = true
+			game.update_fauna(20)
+			game.update_chaos(10)
 		2:
-			timer.start()
+			story2_fin()
 		3:
 			story3_fin()
 		4:
+			game.update_ppl(20)
 			story4_fin()
 		5:
+			game.update_chaos(10)
 			story5_fin()
 		6:
+			game.update_fauna(20)
+			game.update_chaos(20)
 			story6_fin()
 			disappearing = true
 		7: 
 			turtle = true
+			game.ppl(10)
 			story7_fin()
 		8:
 			rule_alone = true
 			timer.start()
-
+		9:
+			game.update_fauna(15)
+			story9_fin()
 
 func _on_timer_timeout() -> void:
 	timer.stop()
+	question_buble.hide()
 	scene+=1
 	match scene:
 		1:
@@ -593,9 +635,11 @@ func _on_timer_timeout() -> void:
 				story2()
 			else:
 				scene+=1
+				game.vision_nr+=1
 				story3()
 		3:
 			scene+=1
+			game.vision_nr+=1
 			story4()
 		4:
 			story4()
@@ -607,6 +651,8 @@ func _on_timer_timeout() -> void:
 			story7()
 		8:
 			story8()
+		9:
+			ending()
 			
 		
 
