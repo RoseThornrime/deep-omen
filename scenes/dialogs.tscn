@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dn4dtdmw7kvoi" path="res://assets/images/pytanie_dymek.png" id="1_cnab0"]
 [ext_resource type="Script" uid="uid://bgo6u2firyxbs" path="res://scripts/dialogs.gd" id="1_ysdbi"]
+[ext_resource type="FontFile" uid="uid://dv3fl0pl7akmj" path="res://assets/fonts/Aquees-LV4aE.ttf" id="3_hpy13"]
 [ext_resource type="Texture2D" uid="uid://dtdgjeege2wxp" path="res://assets/images/odp_dymek.png" id="3_l6cwd"]
 [ext_resource type="Texture2D" uid="uid://ddtqjhfiau63u" path="res://assets/images/odp_dymek_hover.png" id="4_dmgfr"]
+[ext_resource type="Texture2D" uid="uid://c742c70ck4wsk" path="res://assets/images/Kwadrat.png" id="5_cnab0"]
 
 [node name="Dialogs" type="Sprite2D" unique_id=1459008870]
 script = ExtResource("1_ysdbi")
@@ -20,6 +22,7 @@ offset_top = -135.82066
 offset_right = 359.33163
 offset_bottom = 115.04811
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hpy13")
 theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym syrenkom"
@@ -43,6 +46,7 @@ offset_top = 112.92981
 offset_right = 551.44946
 offset_bottom = 363.722
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hpy13")
 theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym
@@ -67,6 +71,7 @@ offset_top = 104.13008
 offset_right = 554.38275
 offset_bottom = 354.92224
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_hpy13")
 theme_override_font_sizes/font_size = 32
 text = "Siema
 Jestem małym
@@ -75,8 +80,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=844350392]
-wait_time = 2.0
+wait_time = 3.0
+
+[node name="Button" type="TextureButton" parent="." unique_id=1375216338]
+visible = false
+offset_left = -567.0
+offset_top = 173.00002
+offset_right = 1913.0
+offset_bottom = 3681.0
+scale = Vector2(0.45423564, 0.041281514)
+texture_normal = ExtResource("5_cnab0")
+
+[node name="Label" type="Label" parent="." unique_id=1592660994]
+visible = false
+offset_left = -560.0
+offset_top = 184.0
+offset_right = 555.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("3_hpy13")
+theme_override_font_sizes/font_size = 32
+text = "JEBAĆ PIS"
+horizontal_alignment = 1
 
 [connection signal="button_down" from="Answer" to="." method="_on_answer_button_down"]
 [connection signal="button_down" from="Answer2" to="." method="_on_answer_2_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
