@@ -64,7 +64,7 @@ scale = Vector2(0.596, 0.596)
 script = ExtResource("1_pebbw")
 sound = "chaos"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=286529746]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=635136636]
 texture = ExtResource("2_pebbw")
 
 [node name="ReturnButton" type="TextureButton" parent="." unique_id=1576023657]
