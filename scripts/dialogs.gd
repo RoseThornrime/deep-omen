@@ -11,6 +11,13 @@ extends Sprite2D
 @onready var pc_buble: TextureButton = $Button
 @onready var pc_label: Label = $Label
 
+@onready var characters = {
+	"rozbitek": $"../Rozbitek",
+	"syrena": $"../Syrena",
+	"ranny": $"../Ranny",
+	"martwy": $"../Martwy",
+	"nawigator": $"../Nawigator"
+}
 
 var scene = 0
 var marynarz = false
@@ -47,6 +54,7 @@ func a2(tekst):
 	answer2_buble.show()
 
 func _ready() -> void:
+	characters["rozbitek"].show_character()
 	guest(
 	"Sea Witch! I'm done for.
 	I don't know what my fate will
@@ -74,6 +82,8 @@ func story0_fin():
 	timer.start()
 
 func story1():
+	characters["rozbitek"].hide_character()
+	characters["syrena"].show_character()
 	guest(
 	"Oh hiii, I saw a ship sinking.
 	Humans are so beautiful. I'd
@@ -93,6 +103,8 @@ func story1_1():
 	have no future.")
 	
 func story2():
+	characters["syrena"].hide_character()
+	characters["nawigator"].show_character()
 	guest(
 	"I'm being stalked by a mermaid,
 	she folows me everywhere!")
@@ -121,7 +133,9 @@ func story2_fin():
 	timer.start()
 	
 func story3():
-	guest("I'm being stalked by a mermaid,
+	characters["syrena"].hide_character()
+	characters["nawigator"].show_character()
+  guest("I'm being stalked by a mermaid,
 	she folows me everywhere! What
 	should I do?")
 	ball.disabled=false

@@ -4,11 +4,16 @@ extends TextureButton
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var textures = [
-	preload("res://assets/images/wizja_slub.png"),
-	preload("res://assets/images/wizja_piana.png"),
+	preload("res://assets/images/wizja_tratwa.png"),
 	preload("res://assets/images/wizja_smutna_syrenka.png"),
 	preload("res://assets/images/wizja_wolnosc.png"),
-	preload("res://assets/images/wizja_zolw.png")
+	preload("res://assets/images/wizja_slub.png"),
+	preload("res://assets/images/wizja_happymeal.png"),
+	preload("res://assets/images/wizja_piana.png"),
+	#preload("res://assets/images/wizja_piana.png"),
+	#preload("res://assets/images/wizja_zolw.png"),
+	preload("res://assets/images/wizja_zolw.png"),
+	preload("res://assets/images/wizja_zwolnienie.png"),
 ]
 
 func _ready() -> void:
