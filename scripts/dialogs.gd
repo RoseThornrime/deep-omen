@@ -252,7 +252,7 @@ func story4_fin():
 	else:
 		if navigator:
 			characters["rekin"].hide_character()
-			characters["ranny"].show_character()
+			characters["nawigator"].show_character()
 			question_buble.hide()
 			await get_tree().create_timer(4).timeout
 			question_buble.show()
@@ -263,6 +263,7 @@ func story4_fin():
 			the Surface. I gotta
 			catch'em all!"
 			)
+			game.update_ppl(10)
 		else:
 			characters["rekin"].hide_character()
 			characters["martwy"].show_character()
@@ -270,6 +271,7 @@ func story4_fin():
 			await get_tree().create_timer(4).timeout
 			question_buble.show()
 			guest("…")
+			game.update_ppl(-30)
 	timer.start()
 
 func story5():
@@ -668,6 +670,7 @@ func _on_answer_2_button_down() -> void:
 			story3_fin()
 		4:
 			game.update_ppl(20)
+			game.update_fauna(-20)
 			story4_fin()
 		5:
 			game.update_chaos(10)
