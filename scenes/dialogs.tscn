@@ -12,6 +12,7 @@ script = ExtResource("1_ysdbi")
 
 [node name="Question" type="Sprite2D" parent="." unique_id=202896075]
 visible = false
+self_modulate = Color(1, 1, 1, 0.8235294)
 position = Vector2(5, -151.00002)
 scale = Vector2(0.62582517, 0.62582517)
 texture = ExtResource("1_cnab0")
@@ -31,6 +32,7 @@ vertical_alignment = 1
 
 [node name="Answer" type="TextureButton" parent="." unique_id=1826774248]
 visible = false
+self_modulate = Color(1, 1, 1, 0.8235294)
 offset_left = -547.0
 offset_top = -77.0
 offset_right = 76.0
@@ -56,6 +58,7 @@ vertical_alignment = 1
 
 [node name="Answer2" type="TextureButton" parent="." unique_id=1787289771]
 visible = false
+self_modulate = Color(1, 1, 1, 0.8235294)
 offset_left = 118.0
 offset_top = -81.0
 offset_right = 741.0
@@ -63,6 +66,7 @@ offset_bottom = 407.0
 scale = Vector2(0.68183947, 0.68183947)
 texture_normal = ExtResource("3_l6cwd")
 texture_hover = ExtResource("4_dmgfr")
+flip_h = true
 
 [node name="Label" type="Label" parent="Answer2" unique_id=1590438773]
 layout_mode = 0

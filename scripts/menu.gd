@@ -46,6 +46,7 @@ func _on_credits_pressed() -> void:
 
 func _on_tutorial_pressed() -> void:
 	AudioManager.play_effect("click")
+	tutorial.show_tutorial()
 	tutorial.show()
 	hide_buttons()
 

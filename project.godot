@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Deep Omen"
-run/main_scene="uid://cbf4ojqsfyqrw"
+run/main_scene="uid://qo4td88b3dxf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

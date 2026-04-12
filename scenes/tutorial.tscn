@@ -49,6 +49,5 @@ theme_override_fonts/font = ExtResource("7_ej4tf")
 theme_override_font_sizes/font_size = 64
 text = "Return"
 
-[connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="hidden" from="ReturnButton" to="." method="_on_return_button_hidden"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

@@ -33,7 +33,6 @@ func _ready():
 	AudioManager.play_music("story")
 
 
-
 func _on_texture_button_pressed() -> void:
 	AudioManager.play_effect("drop")
 	if index < len(images) -1:

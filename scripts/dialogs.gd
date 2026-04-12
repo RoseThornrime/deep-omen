@@ -188,7 +188,9 @@ func story3_fin():
 			return
 		characters["nawigator"].hide_character()
 		characters["rozbitek"].show_character()
+		question_buble.hide()
 		await get_tree().create_timer(4).timeout
+		question_buble.show()
 		guest("Hey, I've heard something
 		about beautiful mermaid")
 		await pc("Yes, since she saw that
@@ -233,7 +235,9 @@ func story4_fin():
 	if !shark:
 		characters["rekin"].hide_character()
 		characters["ranny"].show_character()
+		question_buble.hide()
 		await get_tree().create_timer(4).timeout
+		question_buble.show()
 		guest("Oh, witch! Can I hide from
 		shark here?")
 		await pc("Fine")
@@ -248,8 +252,10 @@ func story4_fin():
 	else:
 		if navigator:
 			characters["rekin"].hide_character()
-			characters["nawigator"].show_character()
+			characters["ranny"].show_character()
+			question_buble.hide()
 			await get_tree().create_timer(4).timeout
+			question_buble.show()
 			guest(
 			"Haha, I made it! 
 			Unbelievable this shark
@@ -260,7 +266,9 @@ func story4_fin():
 		else:
 			characters["rekin"].hide_character()
 			characters["martwy"].show_character()
+			question_buble.hide()
 			await get_tree().create_timer(4).timeout
+			question_buble.show()
 			guest("…")
 	timer.start()
 
@@ -389,6 +397,7 @@ func story7():
 		you, DO-NOT-TOUCH."
 	)
 	$"../jumpscare".show()
+	AudioManager.play_effect("scream")
 	await get_tree().create_timer(0.3).timeout
 	$"../jumpscare".hide()
 	
@@ -445,6 +454,9 @@ func story8():
 		if game.ppl*game.fauna<game.chaos:
 			end_game("chaos")
 		else:
+			characters["zolw"].hide_character()
+			question_buble.hide()
+			await get_tree().create_timer(4).timeout
 			await pc("Uff, i won
 			Luckly he was not strong enought for me")
 			timer.start()
@@ -512,7 +524,7 @@ func story9():
 	await pc(
 		"You're in the right place"
 	)
-	ball.disabled = true
+	ball.disabled = false
 
 func story9_1():
 	guest(
@@ -598,6 +610,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_answer_button_down() -> void:
 	AudioManager.play_effect("click")
+	question_buble.hide()
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
@@ -615,6 +628,7 @@ func _on_answer_button_down() -> void:
 			navigator=true
 		4:
 			game.update_fauna(20)
+			shark = true
 			story4_fin()
 		5:
 			game.update_fauna(20)
@@ -634,6 +648,7 @@ func _on_answer_button_down() -> void:
 
 func _on_answer_2_button_down() -> void:
 	AudioManager.play_effect("click")
+	question_buble.hide()
 	answer_buble.hide()
 	answer2_buble.hide()
 	match scene:
@@ -663,7 +678,7 @@ func _on_answer_2_button_down() -> void:
 			disappearing = true
 		7: 
 			turtle = true
-			game.ppl(10)
+			game.update_ppl(10)
 			story7_fin()
 		8:
 			rule_alone = true
@@ -701,6 +716,8 @@ func _on_timer_timeout() -> void:
 		8:
 			story8()
 		9:
+			story9()
+		10:
 			ending()
 			
 	
