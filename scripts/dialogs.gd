@@ -17,7 +17,13 @@ extends Sprite2D
 	"syrena": $"../Syrena",
 	"ranny": $"../Ranny",
 	"martwy": $"../Martwy",
-	"nawigator": $"../Nawigator"
+	"nawigator": $"../Nawigator",
+	"doradca": $"../Doradca",
+	"ryba": $"../Ryba",
+	"dziewczynka": $"../Dziewczynka",
+	"zolw": $"../Zolw",
+	"rekin": $"../Rekin",
+	"piana": $"../Piana"
 }
 
 var scene = 0
@@ -180,6 +186,9 @@ func story3_fin():
 			timer.start()
 			game.update_ppl(10)
 			return
+		characters["nawigator"].hide_character()
+		characters["rozbitek"].show_character()
+		await get_tree().create_timer(4).timeout
 		guest("Hey, I've heard something
 		about beautiful mermaid")
 		await pc("Yes, since she saw that
@@ -190,12 +199,16 @@ func story3_fin():
 		await pc("Don't you understand she's
 		a lunatic?")
 		guest("I can fix her!")
+		characters["rozbitek"].hide_character()
 		game.update_ppl(20)
 	else:
 		game.update_ppl(-20)
 	timer.start()
 
 func story4():
+	characters["nawigator"].hide_character()
+	characters["rekin"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 	"I'm terribly hungry, you gotta
 	help me")
@@ -217,15 +230,10 @@ func story4_1():
 	)
 
 func story4_fin():
-	if navigator:
-		guest(
-		"Haha, I made it! 
-		Unbelievable this shark
-		was swimming so close to
-		the Surface. I gotta
-		catch'em all!"
-		)
-	if shark:
+	if !shark:
+		characters["rekin"].hide_character()
+		characters["ranny"].show_character()
+		await get_tree().create_timer(4).timeout
 		guest("Oh, witch! Can I hide from
 		shark here?")
 		await pc("Fine")
@@ -238,10 +246,33 @@ func story4_fin():
 		It saved me")
 		await pc("I don't think so…")
 	else:
-		guest("…")
+		if navigator:
+			characters["rekin"].hide_character()
+			characters["nawigator"].show_character()
+			await get_tree().create_timer(4).timeout
+			guest(
+			"Haha, I made it! 
+			Unbelievable this shark
+			was swimming so close to
+			the Surface. I gotta
+			catch'em all!"
+			)
+		else:
+			characters["rekin"].hide_character()
+			characters["martwy"].show_character()
+			await get_tree().create_timer(4).timeout
+			guest("…")
 	timer.start()
 
 func story5():
+	if !shark:
+		characters["ranny"].hide_character()
+	elif navigator:
+		characters["nawigator"].hide_character()
+	else:
+		characters["martwy"].hide_character()
+	characters["ryba"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest("Ah, this seafoam is everywhere!
 	I hate it, it gets in my gills
 	all the time!")
@@ -277,6 +308,9 @@ func story5_fin():
 
 
 func story6():
+	characters["ryba"].hide_character()
+	characters["piana"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 		"Wiiitch, help me, I'm going
 		to disappear, I can feel it!"
@@ -331,6 +365,9 @@ func story6_fin():
 	timer.start()
 
 func story7():
+	characters["piana"].hide_character()
+	characters["dziewczynka"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 		"My turtle is my best friend!
 		I'd like to know if we're gonna
@@ -389,6 +426,9 @@ func story7_fin():
 	timer.start()
 		
 func story8():
+	characters["dziewczynka"].hide_character()
+	characters["zolw"].show_character()
+	await get_tree().create_timer(4).timeout
 	if not turtle:
 		guest(
 			"You have no idea with
@@ -452,6 +492,9 @@ func story8_fin():
 	
 	
 func story9():
+	characters["zolw"].hide_character()
+	characters["doradca"].show_character()
+	await get_tree().create_timer(4).timeout
 	guest(
 		"Greetings witch, I came to ask
 		for your advice"

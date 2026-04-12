@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://6cb3wsgc3pv1"]
+
+[ext_resource type="Script" uid="uid://ev4s5rhbbvre" path="res://scripts/character.gd" id="1_t61mc"]
+[ext_resource type="Texture2D" uid="uid://b7th4af10mo87" path="res://assets/images/rozbitek 1.png" id="2_7t0pj"]
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "hide_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "show_viz"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"hide_viz": SubResource("Animation_0tnpc"),
+&"show_viz": SubResource("Animation_vtaks")
+}
+
+[node name="Rozbitek" type="Node2D" unique_id=121630932]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_t61mc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178678363]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("2_7t0pj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=656919319]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1637105276]
