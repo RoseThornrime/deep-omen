@@ -129,7 +129,9 @@ position = Vector2(-1736.8134, 165.98549)
 visible = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_pressed"]
+[connection signal="hidden" from="OptionsButton" to="." method="_on_options_button_hidden"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_pressed"]
 [connection signal="hidden" from="Options" to="." method="_on_options_hidden"]
+[connection signal="hidden" from="Credits" to="." method="_on_credits_hidden"]
