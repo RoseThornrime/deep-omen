@@ -399,7 +399,7 @@ func story8():
 			and see the future"
 		)
 		if game.ppl*game.fauna<game.chaos:
-			end_game("bad")
+			end_game("chaos")
 		else:
 			await pc("Uff, i won
 			Luckly he was not strong enought for me")
@@ -443,7 +443,7 @@ func story8_fin():
 			it, just wait."
 		)
 		if game.ppl*game.fauna<game.chaos:
-			end_game("bad")
+			end_game("chaos")
 	timer.start()
 	
 	
@@ -515,7 +515,7 @@ func story9_fin():
 func ending():
 	if rule_alone:
 		if game.chaos>80:
-			end_game("chaos")
+			end_game("bad")
 		else:
 			end_game("good")
 	else:
