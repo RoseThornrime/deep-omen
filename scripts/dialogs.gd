@@ -56,322 +56,430 @@ func a2(tekst):
 func _ready() -> void:
 	characters["rozbitek"].show_character()
 	guest(
-	"wiedźmo morska! jestem skończony.
-	nie wiem jaka mnie przyszłość czeka.
-	umiesz przepowiadać?
-	pomórz mi")
+	"Sea Witch! I'm done for.
+	I don't know what my fate will
+	bring to me. You're a fortune
+	teller, aren't you? Help me.")
 	ball.disabled=false
 	
 func story0_1():
 	guest(
-	"czy będę bezpieczny na powierzchni?")
+	"Am I going to be save
+	on Surface?")
 	a1(
-	"nie,
-	utoniesz nim dopłyniesz.
-	powinieneś zostać na dnie i
-	pomóc podwodnym mieszkańcom")
-	a2("tak,
-	na powierzchni znajdziesz tratwę")
+	"No, you're going to drawn
+	before you reach the surface.
+	You should stay at the bottom
+	of the sea and help its
+	residents.")
+	a2("Yes, you will find a raft
+	above surface")
 
 func story0_fin():
-	guest("dziękuje ci za pomoc,
-	nie mam dużo ale proszę")
+	guest("Thank you for your help.
+	It's not much, but that's
+	for you")
 	timer.start()
 
 func story1():
 	characters["rozbitek"].hide_character()
 	characters["syrena"].show_character()
 	guest(
-	"o hejjjjj, widziałam że jakiś statek
-	zatonął, ludzie są tacy piękni.
-	chce wiedzieć czy mam przyszłość z
-	pięknym nawigatorem który wpadł do wody")
+	"Oh hiii, I saw a ship sinking.
+	Humans are so beautiful. I'd
+	like to know if there's future
+	for me and handsome nawigator
+	that fell into water?")
 	ball.disabled=false
 	
 func story1_1():
 	guest(
-	"i jak?")
+	"So?")
 	a2(
-	"myślę że powinnaś iść
-	za głosem serca")
-	a1("powinnaś się poddać
-	związki międzygatunkowe
-	nigdy nie mają przyszłości")
+	"I think you should follow
+	your heart.")
+	a1("You should give up,
+	interspecies relationships
+	have no future.")
 	
 func story2():
 	characters["syrena"].hide_character()
 	characters["nawigator"].show_character()
 	guest(
-	"prześladuje mnie syrena,
-	ona ciągle za mną pływa")
+	"I'm being stalked by a mermaid,
+	she folows me everywhere!")
 	ball.disabled=false
 	
 func story2_1():
 	guest(
-	"jak to się skończy?")
+	"How's it going to end?")
 	a2(
-	"myśle że wszystko się ułoży")
+	"I think everything is
+	going to be fine.")
 	a1(
-	"powinieneś jak najszybciej coś
-	z tym zrobić, ona jest niebezpieczna")
+	"You should do something
+	about her as soon as
+	possible, she's dangerous.")
+	
+func story2_fin():
+	if navigator:
+		guest("Is that so? Phew, thank
+		you, I feel relieved.")
+	else:
+		guest("Just as I thought… This
+		whole underwater fauna
+		is seriously coo-coo. It's
+		time to take care of this.")
+	timer.start()
 	
 func story3():
 	characters["syrena"].hide_character()
 	characters["nawigator"].show_character()
-	guest("prześladuje mnie syrena, ona ciągle za mną pływa. nie wiem co robić")
+  guest("I'm being stalked by a mermaid,
+	she folows me everywhere! What
+	should I do?")
 	ball.disabled=false
 
 func story3_1():
-	guest("jak to się skończy?")
-	a1("jeszcze trochę pocierpisz ale w końcu odpuści")
-	a2("wróże wam wielką miłość! powinieneś ją bliżej poznać")
+	guest("How's it going to end?")
+	a1("You're going to suffer
+	a little more, but she
+	will let go in the end.")
+	a2("I can see great love
+	between you two! You
+	should get to know her
+	better.")
 
 func story3_fin():
 	if !marynarz:
 		timer.start()
 		return
-	guest("hej, słyszałem coś o pięknej syrenie")
-	await pc("tak, odkąd zobaczyła tego nawigatora nie może się odczepić")
-	guest("myślisz... że mogę ją poznać?")
-	await pc("nie rozumiesz że jest psychiczna?")
-	guest("i can fix her")
+	guest("Hey, I've heard something
+	about beautiful mermaid")
+	await pc("Yes, since she saw that
+	navigator she doesn't want
+	to let go.")
+	guest("Do you think… I could
+	meet her?")
+	await pc("Don't you understand she's
+	a lunatic?")
+	guest("I can fix her!")
 	timer.start()
 
 func story4():
 	guest(
-	"jestem strasznie głodny, musisz mi powróżyć")
+	"I'm terribly hungry, you gotta
+	help me")
 	ball.disabled=false
 
 func story4_1():
 	guest(
-		"czy znajdę przekąskę?"
+	"Am I going to find a snack?"
 	)
 	a2(
-		"tych wodach niestety nie, musisz poszukać gdzieś indziej"
+	"Not in those waters,
+	you gotta look somewhere
+	else"
 	)
 	a1(
-		"okolicy pływa człowiek, przewiduje że w końcu go znajdziesz"
+	"Some random man is swimming
+	around, you will find
+	him soon"
 	)
 
 func story4_fin():
 	if navigator:
 		guest(
-			"haha udał mi się łów, niesamowite że rekin pływał tak blisko powierzchni. upoluje je wszystkie."
+		"Haha, I made it! 
+		Unbelievable this shark
+		was swimming so close to
+		the Surface. I gotta
+		catch'em all!"
 		)
 	if shark:
-		guest("och wiedźmo, czy mogę ukryć się tu przed rekinem?")
-		await pc("dobrze")
-		guest("wiesz... przed chwila zdawało mi się że umieram, a teraz jestem bezpieczny! dzięki ci o wielki żółwiu")
-		await pc("żółwiu?")
-		guest("potężna kreatura hehe, uratowała mnie")
-		await pc("nie sądzę")
+		guest("Oh, witch! Can I hide from
+		shark here?")
+		await pc("Fine")
+		guest("You know… just moments
+		ago I thought I was dying
+		and now I'm safe! All hail
+		to the Great Turtle!")
+		await pc("Turtle?")
+		guest("Powerful creature, hehe.
+		It saved me")
+		await pc("I don't think so…")
 	else:
 		guest("…")
 	timer.start()
 
 func story5():
-	guest("ah tyle tej piany morskiej, nienawidzę jej. cały czas wchodzi mi w skrzela")
-	await pc("co ja mam z tym zrobić?")
-	guest("nie wiem, jesteś wiedźmą wyczaruj coś")
+	guest("Ah, this seafoam is everywhere!
+	I hate it, it gets in my gills
+	all the time!")
+	await pc("And what does it have to do
+	with me?")
+	guest("I don't know! You're the witch,
+	do some magic or whatever")
 	ball.disabled=false
 
 func story5_1():
-	guest("czy pochłonie mnie ta trucizna?")
-	a2("no nie wiem, takim rybom jak ty taka piana będzie szkodzić latami")
-	a1("piana zniknie.. nie ma paniki")
+	guest("Is this thing going
+	to poison me?")
+	a2("Well, I don't know, this
+	foam might harm fishes
+	like you for years")
+	a1("Seafoam is going
+	to disappear… don't panic")
 
 
 func story5_fin():
 	if fish:
-		guest("czyli co? co jest powodem tej sytuacji?")
-		await pc("tryton oczywiście")
-		guest("wiedziałam")
+		guest("So what? What's the reason
+		for this situation?")
+		await pc("Triton of course")
+		guest("I knew it!")
 	else:
-		guest("ale kiedy?")
-		await pc("niezbadane są wyniki przyszłości")
-		guest("beznadziejna ta cała magia")
+		guest("But when?")
+		await pc("You never know, sometime
+		in the future")
+		guest("Wow, this whole magic
+		thing sucks")
 	timer.start()
 
 
 func story6():
 	guest(
-		"wiedźmooooooo pomórz mi, zaraz zniknę, czuje że znikam"
+		"Wiiitch, help me, I'm going
+		to disappear, I can feel it!"
 	)
 	ball.disabled = false
 
 func story6_1():
 	guest(
-		"czy naprawdę zniknę?"
+		"Am I really going to disappear??"
 	)
 	a2(
-		"żesz odwrócić twój stan... wystarczy że będziesz się rozwijać"
+		"To reverse your state…
+		You just have to evolve"
 	)
 	a1(
-		"niestety taka jest kolej rzeczy, szkoda"
+		"I'm sorry, that's what
+		we call the circle
+		of life. Shame"
 	)
 	
 func story6_fin():
 	if disappearing:
 		guest(
-			"to znaczy?"
+			"What do you mean?"
 		)
 		await pc(
-			"widzisz... pewna ryba jest zaczarowana, może odwrócić znikanie twojej piany"
+			"You see… there's magical
+			fish outh there. It can
+			shift your condition."
 		)
 		guest(
-			"jak? gdzie?"
+			"How? Where?"
 		)
 		await pc(
-			"wyczuwam że... eeee"
+			"I can feel that… uhhhh"
 		)
 		guest(
-			"nie ważne, muszę ją jak najszybciej znaleźć"
+			"Nevermind, I need to find
+			it as soon as possible!"
 		)
 	else:
 		guest(
-			"jak to! NIE TO NIEMOŻLIWE"
+			"What?! IT'S IMPOSSIBLE!"
 		)
 		await pc(
-			"sama widzisz że powoli znikasz"
+			"You alread know, you're
+			slowly disappearing"
 		)
 		guest(
-			"ah tak"
+			"Ah yes…"
 		)
 	timer.start()
 
 func story7():
 	guest(
-		"mój żółw, jest moim najlepszym przyjacielem. chciałabym wiedzieć czy będziemy już ze sobą na zawsze!"
+		"My turtle is my best friend!
+		I'd like to know if we're gonna
+		stay together forever!"
 	)
 	await pc(
-		"co?"
+		"What?"
 	)
 	guest(
-		"coś nie tak wiedźmo?"
+		"Is something wrong witch?"
 	)
 	await pc(
-		"mogę się przyjrzeć twojemu żółwiowi?"
+		"Can I take a closer look
+		at your turtle?"
 	)
 	guest(
-		"nie! on jest moim przyjacielem NIE DOTYKAJ GO, mówię ci nie-do-ty-Kaj"
+		"No! He's my friend, DON'T
+		touch him. I'm telling
+		you, DO-NOT-TOUCH."
 	)
 	ball.disabled=false
 
 	
 func story7_1():
 	guest(
-		"to co mówi przyszłość?"
+		"What does the future bring?"
 	)
 	a2(
-		"myślę że stanowicie słodka parę znajomych hehe, na zawsze zostaniecie razem"
+		"I think you're cute
+		friends, hehe. You're
+		going to stay together
+		forever."
 	)
 	a1(
-		"ten żółw, jest... on"
+		"This turtle is… it's…"
 	)
 	
 func story7_fin():
 	if turtle:
 		guest(
-				"<żółw> dobry wybór śmiertelniku
-				<girl> tak się cieszę! zostaniemy ze sobą na zawsze, tutaj na dnie morza"
+				"<Turtle> Good answer, mortal.
+				<Girl> I'm so happy! We're
+				going to be together
+				forever, here at
+				the bottom of the sea!"
 			)
 	else:
-		await pc("ten żółw, jest... on")
-		guest("he?")
-		await pc("ON JEST JAKIMŚ STRASZNYM BYTEM! powinnaś go puścić")
+		guest("Huh?")
+		await pc("IT'S SOME HORRIFYING
+		ENTITY! You should
+		let it go!")
 	timer.start()
 		
 func story8():
 	if not turtle:
 		guest(
-			"nawet nie wiesz z kim masz do czynienia!",	
+			"You have no idea with
+			whom you're messing with!"
 		)
 		await pc(
-			"oj wiem bardzo dobrze"
+			"Oh, I know very well."
 		)
 		guest(
-			"spróbuj walczyć ze mną, no dalej popatrz w swoją kule i zobacz przyszłość"
+			"Fight me. Go on, look
+			into your cristal ball
+			and see the future"
 		)
+		#BASED ON SUPPORT:
+#
+		#low suport:
+		#bad ending - you lose to turtle
+#
+		#high suport:
+		#good ending - witch sits on throne without turtle
 	else:
 		guest(
-			"dziękuje ze mnie nie wydałaś śmiertelniczko"
+			"Thank you for keeping
+			my secret, mortal"
 		)
 		await pc(
-			"nie ma za co..."
+			"You're welcome…"
 		)
 		guest(
-			"wyczuwam że chcesz mocy! razem możemy wprowadzić chaos w całym królestwie"
+			"I can feel you desire
+			power! Together we can
+			set this kingdom in chaos"
 		)
 	ball.disabled = false
 	
 func story8_1():
-	guest("czy przyłączysz się do mnie?")
-	a2("chce rządzić sama")
-	a1("rządzmy razem!")
+	guest("Will you join me?")
+	a2("I want to rule all by myself")
+	a1("Let's rule together!")
 	
 func story8_fin():
 	if rule_alone:
 		guest(
-			"ah tak, wiedz wybierasz przegraną. Myślisz że kto napisał list o utracie poparcia u trytona?"
+			"Is that so? You should
+			know you're going to fail.
+			Who do you think wrote
+			that letter about Triton
+			loosing followers?"
 		)
 		await pc(
-			"nie ważne, przekazałeś mi to za darmo"
+			"It doesn't matter,
+			you gave it to me for free"
 		)
 		guest(
-			"jeszcze zobaczysz "
+			"Oh, you will regret
+			it, just wait."
 		)
+	else:
+		pass #ending
 	timer.start()
 	
 	
 func story9():
 	guest(
-		"witaj wiedźmo, przybyłem aby zapytać się o porade "
+		"Greetings witch, I came to ask
+		for your advice"
 	)
 	await pc(
-		"poradę?"
+		"Advice?"
 	)
 	guest(
-		"usłyszałem że przepowiadasz przyszłość, patrze na nastroje, nie każdy wspiera trytona. chciałbym wiedzieć jaka jest ma przyszłość u jego boku"
+		"I've heard you can see future,
+		I can see that not everyone
+		agrees with Triton.
+		I'd like how my future looks
+		like, staying by his side."
 	)
 	await pc(
-		"dobrze trafiłeś"
+		"You're in the right place"
 	)
 	ball.disabled = true
 
 func story9_1():
 	guest(
-		"co tam widzisz?"
+		"What can you see?"
 	)
 	a2(
-		"widzę przed tobą świetlaną przyszłość"
+		"I can see bright future
+		in front of you"
 	)
 	a1(
-		"widzę, widzę… bezrobocie"
+		"I can see, I can see…
+		you're jobless"
 	)
 
 func story9_fin():
 	if guide:
 		guest(
-			"tak?"
+			"Yes?"
 		)
 		await pc(
-			"ale tylko u mojego boku"
+			"But only by my side"
 		)
 		guest(
-			"to znaczy?"
+			"What do you mean?"
 		)
 		await pc(
-			"jeśli pomożesz mi zdobyć stanowisko władcy mórz wszystko się ułoży"
+			"If you help me get
+			the throne of Underwater
+			Kingdom everything
+			is going to work out"
 		)
 	else:
 		guest(
-			"he?"
+			"Huh?"
 		)
 		await pc(
-			"niedługo stracisz prace, nie ma rady "
+			"You're going to lose
+			your job soon, there's
+			no other way"
 		)
 		guest(
-			"wszystko jest bez sensu, odchodzę"
+			"This makes no sense,
+			I'm leaving!"
 		)
 	timer.start()
 
@@ -409,7 +517,7 @@ func _on_answer_button_down() -> void:
 		1:
 			timer.start()
 		2:
-			timer.start()
+			story2_fin()
 		3:
 			story3_fin()
 		4:
