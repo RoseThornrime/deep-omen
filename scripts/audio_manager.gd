@@ -37,11 +37,15 @@ func _ready():
 		add_child(player)
 		player.stream = load(path)
 		effect_players[name] = player
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.5))
 		
 func play_effect(name):
 	effect_players[name].play()
 	
 func set_music_volume(value):
+	var index = AudioServer.get_bus_index("Music")
+	var db = str(AudioServer.get_bus_volume_db(index))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 func set_effects_volume(value):
