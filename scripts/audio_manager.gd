@@ -39,7 +39,7 @@ func _ready():
 		effect_players[name] = player
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(0.5))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.5))
-		
+
 func play_effect(name):
 	effect_players[name].play()
 	
