@@ -89,16 +89,16 @@ func _ready() -> void:
 	
 func story0_1():
 	guest(
-	"Am I going to be save
-	on Surface?")
+	"Am I going to be safe
+	on the Surface?")
 	a2(
-	"No, you're going to drawn
-	before you reach the surface.
+	"No, you're going to drown
+	before you reach the Surface.
 	You should stay at the bottom
 	of the sea and help its
 	residents.")
 	a1("Yes, you will find a raft
-	above surface")
+	above the Surface")
 
 func story0_fin():
 	guest("Thank you for your help.
@@ -114,7 +114,7 @@ func story1():
 	"Oh hiii, I saw a ship sinking.
 	Humans are so beautiful. I'd
 	like to know if there's future
-	for me and handsome nawigator
+	for me and handsome navigator
 	that fell into water?")
 	ball.disabled=false
 	
@@ -134,7 +134,7 @@ func story2():
 	await get_tree().create_timer(4).timeout
 	guest(
 	"I'm being stalked by a mermaid,
-	she folows me everywhere!")
+	she follows me everywhere!")
 	ball.disabled=false
 	
 func story2_1():
@@ -166,7 +166,7 @@ func story3():
 	characters["nawigator"].show_character()
 	await get_tree().create_timer(4).timeout
 	guest("I'm being stalked by a mermaid,
-	she folows me everywhere! What
+	she follows me everywhere! What
 	should I do?")
 	ball.disabled=false
 
@@ -283,7 +283,7 @@ func story5():
 		characters["martwy"].hide_character()
 	characters["ryba"].show_character()
 	await get_tree().create_timer(4).timeout
-	guest("Ah, this seafoam is everywhere!
+	guest("Ah, this sea foam is everywhere!
 	I hate it, it gets in my gills
 	all the time!")
 	await pc("And what does it have to do
@@ -296,7 +296,7 @@ func story5_1():
 	guest("Is this thing going
 	to poison me?")
 	a2("Well, I don't know, this
-	foam might harm fishes
+	foam might harm fish
 	like you for years")
 	a1("Seafoam is going
 	to disappear… don't panic")
@@ -348,7 +348,7 @@ func story6_fin():
 		)
 		await pc(
 			"You see… there's magical
-			fish outh there. It can
+			fish out there. It can
 			shift your condition."
 		)
 		guest(
@@ -366,7 +366,7 @@ func story6_fin():
 			"What?! IT'S IMPOSSIBLE!"
 		)
 		await pc(
-			"You alread know, you're
+			"You already know, you're
 			slowly disappearing"
 		)
 		guest(
@@ -387,7 +387,7 @@ func story7():
 		"What?"
 	)
 	guest(
-		"Is something wrong witch?"
+		"Is something wrong, witch?"
 	)
 	await pc(
 		"Can I take a closer look
@@ -450,7 +450,7 @@ func story8():
 		)
 		guest(
 			"Fight me. Go on, look
-			into your cristal ball
+			into your crystal ball
 			and see the future"
 		)
 		if game.ppl*game.fauna<game.chaos**2:
@@ -459,8 +459,8 @@ func story8():
 			characters["zolw"].hide_character()
 			question_buble.hide()
 			await get_tree().create_timer(4).timeout
-			await pc("Uff, i won
-			Luckly he was not strong enought for me")
+			await pc("Phew, I won
+			Luckily he was not strong enought for me")
 			game.vision_nr+=1
 			timer.start()
 			return
@@ -491,7 +491,7 @@ func story8_fin():
 			know you're going to fail.
 			Who do you think wrote
 			that letter about Triton
-			loosing followers?"
+			losing followers?"
 		)
 		await pc(
 			"It doesn't matter,
@@ -504,8 +504,8 @@ func story8_fin():
 		if game.ppl*game.fauna<game.chaos**2:
 			end_game("chaos")
 		else:
-			await pc("Uff, i won
-			Luckly he was not strong enought for me")
+			await pc("Phew, I won
+			Luckly he was not strong enough for me")
 	timer.start()
 	
 	
@@ -537,7 +537,7 @@ func story9_1():
 		"What can you see?"
 	)
 	a2(
-		"I can see bright future
+		"I can see a bright future
 		in front of you"
 	)
 	a1(
